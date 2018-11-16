@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SatlockApp.Views.TravelPage"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
+             Title="Mis viajes" 
+             BackgroundColor="#F5F5F5" 
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ContentPage.Content>
+        <StackLayout BindingContext="{Binding Travel}">
+            <SearchBar BackgroundColor="Transparent" HeightRequest="50" HorizontalOptions="CenterAndExpand" Margin="5" Text="{Binding Filter, Mode=TwoWay}" Placeholder="Buscar Contenedor" SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            <ListView BackgroundColor="Transparent" HasUnevenRows="true" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}" ItemsSource="{Binding Trips}" SeparatorVisibility="None" RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Margin="5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Frame Grid.Row="0" CornerRadius="2" BorderColor="LightGray" HasShadow="false" Margin="0,0,0,-7">
+                                    <Frame.GestureRecognizers>
+                                        <TapGestureRecognizer Command="{Binding SelectTripCommand}"/>
+                                    </Frame.GestureRecognizers>
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <Label Grid.Row="0" FontAttributes="Bold" FontSize="Large" Text="{Binding Contenedor}" TextColor="Black" />
+                                        <Label Grid.Row="1" FontAttributes="Bold" FontSize="Micro" Text="{Binding Uloc}" TextColor="Black" />
+                                        <StackLayout Grid.Row="2" Orientation="Horizontal">
+                                            <Frame HeightRequest="35" Margin="0" Padding="0" HasShadow="false">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <iconize:IconImage HeightRequest="15" Margin="0,0,2,0" Icon="fas-building" IconColor="#e0e0e0" WidthRequest="15" />
+                                                    <iconize:IconLabel FontSize="Small" Text="{Binding Subgrupo}" TextColor="#212121" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </Frame>
+                                            <Frame HeightRequest="35" Margin="5,0,0,0" Padding="0" HasShadow="false">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <iconize:IconImage HeightRequest="15" Margin="0,0,2,0" Icon="fas-calendar" IconColor="#e0e0e0" WidthRequest="15" />
+                                                    <iconize:IconLabel FontSize="Small" Text="{Binding Floc}" TextColor="#212121" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                                <Frame Grid.Row="1" BackgroundColor="#f5f5f5" CornerRadius="2" BorderColor="LightGray" HasShadow="false" Margin="0">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <StackLayout Grid.Row="0" Orientation="Horizontal">
+                                            <Frame HeightRequest="35" Margin="0" Padding="0"  BackgroundColor="Transparent" HasShadow="false">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <iconize:IconImage HeightRequest="20" Margin="0,0,2,0" Icon="fas-battery-full" IconColor="#e95936" WidthRequest="20" />
+                                                    <iconize:IconLabel FontSize="Small" Text="{Binding Bateria}" TextColor="#212121" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </Frame>
+                                            <Frame HeightRequest="35" Margin="5,0,0,0"  Padding="0" BackgroundColor="Transparent" HasShadow="false">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <iconize:IconImage HeightRequest="15" Margin="0,0,2,0" Icon="fas-info-circle" IconColor="#e95936" WidthRequest="20" />
+                                                    <iconize:IconLabel FontSize="Small" Text="{Binding Estado}" TextColor="#212121" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </Frame>
+                                            <Frame HeightRequest="30" Margin="5,0,0,0"  Padding="0" HorizontalOptions="End" BackgroundColor="Transparent" HasShadow="false">
+                                                <StackLayout Orientation="Horizontal">
+                                                    <iconize:IconImage HeightRequest="15" Margin="0,0,2,0" Icon="fas-map-marker-alt" IconColor="#e95936" WidthRequest="15" />
+                                                    <iconize:IconLabel FontSize="Small" Text="Detalles" TextColor="#212121" VerticalTextAlignment="Center" />
+                                                </StackLayout>
+                                            </Frame>
+                                        </StackLayout>
+                                    </Grid>
+                                </Frame>
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

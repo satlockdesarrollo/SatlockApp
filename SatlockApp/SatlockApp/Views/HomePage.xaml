@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="SatlockApp.Views.HomePage" 
+    xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
+    xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+    BackgroundColor="#F5F5F5"
+    Title="Inicio"
+    BindingContext="{Binding Main, Source={StaticResource Locator}}">
+    <ScrollView BackgroundColor="Transparent">
+        <RelativeLayout BindingContext="{Binding Home}">
+            <!--<Image Source="fondo" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />-->
+            <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"  VerticalOptions="Center"  Padding="20">
+                <flv:FlowListView FlowColumnCount="2" SeparatorVisibility="None" HasUnevenRows="true"
+                FlowItemsSource="{Binding Menus}" BackgroundColor="Transparent">
+                    <flv:FlowListView.FlowColumnTemplate>
+                        <DataTemplate>
+                            <Frame CornerRadius="8" HasShadow="false" BackgroundColor="White" HorizontalOptions="Center" Margin="5" >
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}" />
+                                </Frame.GestureRecognizers>
+                                <StackLayout Orientation="Vertical">
+                                    <iconize:IconImage HeightRequest="60" Icon="{Binding Icon}" IconColor="#e95936" WidthRequest="60" Margin="0,0,0,20"/>
+                                    <Label HorizontalTextAlignment="Center" Margin="0,20,0,0" FontAttributes="Bold" FontSize="Medium" Text="{Binding Title}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </DataTemplate>
+                    </flv:FlowListView.FlowColumnTemplate>
+                </flv:FlowListView>
+
+            </Grid>
+        </RelativeLayout>
+    </ScrollView>
+</ContentPage>
