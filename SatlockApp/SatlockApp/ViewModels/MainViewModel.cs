@@ -69,6 +69,12 @@
             get;
             set;
         }
+
+        public QrWizardViewModel QrWizard
+        {
+            get;
+            set;
+        }
         #endregion
 
         #region Contructors

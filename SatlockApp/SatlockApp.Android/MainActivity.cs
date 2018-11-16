@@ -8,7 +8,8 @@ using Android.Widget;
 using Android.OS;
 using Android.Graphics;
 using CarouselView.FormsPlugin.Android;
-//using Lottie.Forms.Droid;
+using Plugin.Permissions;
+
 
 namespace SatlockApp.Droid
 {
@@ -27,6 +28,12 @@ namespace SatlockApp.Droid
             Window.SetStatusBarColor(Color.ParseColor("#b44800"));
             // AnimationViewRenderer.Init();
             LoadApplication(new App());
+        }
+
+        public override void OnRequestPermissionsResult(int requestCode, string[] permissions, [GeneratedEnum] Android.Content.PM.Permission[] grantResults)
+        {
+            PermissionsImplementation.Current.OnRequestPermissionsResult(requestCode, permissions, grantResults);
+            base.OnRequestPermissionsResult(requestCode, permissions, grantResults);
         }
     }
 }

@@ -12,13 +12,7 @@
             <x:String x:Key="PingUrl">https://www.google.com/</x:String>
 
             <Color
-                x:Key="BikingHardColor">#98A5D2</Color>
-            <Color
-                x:Key="AcrobaticsColor">#40C2F3</Color>
-            <Color
-                x:Key="SoExcitedColor">#E3EAE2</Color>
-            <Color
-                x:Key="BikingCoolColor">#1DB890</Color>
+                x:Key="WizardBackgroundColor">#F5F5F5</Color>
 
             <Style
                 TargetType="Label"
@@ -31,7 +25,7 @@
                     Value="CenterAndExpand" />
                 <Setter
                     Property="TextColor"
-                    Value="White" />
+                    Value="#e95936" />
                 <Setter
                     Property="Margin"
                     Value="0, 0, 0, 6" />

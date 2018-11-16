@@ -15,8 +15,8 @@
 
             _views = new View[]
             {
-                new Wizard1View(),
-                new Wizard2View(),
+                new QrWizardView(),
+                new Wizard1View()
                 //new SoExcitedView(),
                 //new BikingCoolView()
             };

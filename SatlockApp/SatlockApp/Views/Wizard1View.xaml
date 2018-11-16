@@ -9,7 +9,7 @@
             <xamanimation:ColorAnimation
                 x:Key="BackgroundColorAnimation"
                 Target="{x:Reference MainPanel}"
-                ToColor="{StaticResource AcrobaticsColor}"
+                ToColor="{StaticResource WizardBackgroundColor}"
                 Duration="500" />
 
             <xamanimation:StoryBoard
@@ -29,26 +29,25 @@
     <ContentView.Content>
         <Grid
         x:Name="MainPanel"
-        BackgroundColor="{StaticResource BikingHardColor}">
+        BackgroundColor="{StaticResource WizardBackgroundColor}">
             <Grid.RowDefinitions>
-                <RowDefinition
-                Height="2.5*" />
-                <RowDefinition
-                Height="*" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <forms:AnimationView 
 	            x:Name="animationView" 
 	            Grid.Row="0"
 	            Animation="transfer.json" 
 	            Loop="true" 
-	            AutoPlay="true" />    
+                HeightRequest="200"
+	            AutoPlay="true" />
             <StackLayout
-            x:Name="InfoPanel"
-            Padding="0,-24,0,0"
-            Grid.Row="1"
-            VerticalOptions="Start"
-            Opacity="0"
-            TranslationY="250">
+                x:Name="InfoPanel"
+                Margin="0,10,0,0"
+                Grid.Row="1"
+                VerticalOptions="Start"
+                Opacity="0"
+                TranslationY="250">
                 <Label
                 Text="Consectetur adipiscing elit"
                 Style="{StaticResource TutorialTitle}" />

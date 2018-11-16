@@ -7,8 +7,12 @@
 
     public class WizardViewModel : BaseViewModel
     {
+        
         public WizardViewModel()
         {
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.QrWizard = new QrWizardViewModel();
+
         }
     }
 }
