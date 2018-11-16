@@ -24,6 +24,7 @@ namespace SatlockApp.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             CarouselViewRenderer.Init();
+            ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             Window.SetStatusBarColor(Color.ParseColor("#b44800"));
             // AnimationViewRenderer.Init();

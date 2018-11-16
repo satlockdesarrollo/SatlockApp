@@ -28,6 +28,7 @@ namespace SatlockApp.iOS
             global::Xamarin.Forms.Forms.Init();
             CarouselViewRenderer.Init();
             AnimationViewRenderer.Init();
+            ZXing.Net.Mobile.Forms.iOS.Platform.Init();
             UINavigationBar.Appearance.TintColor = UIColor.White;
             UINavigationBar.Appearance.BarTintColor = new UIColor(red: 0.91f, green: 0.35f, blue: 0.21f, alpha: 1.0f);
             UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes()
