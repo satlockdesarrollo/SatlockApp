@@ -31,7 +31,8 @@
             {
                 Icon = "fas-check-double",
                 PageName = "WizardPage",
-                Title = "Verificación de Sellos"
+                Title = "Verificación de Sellos",
+                Color = "#2ecc71"
 
             });
 
@@ -39,7 +40,8 @@
             {
                 Icon = "fas-route",
                 PageName = "NewTravelPage",
-                Title = "Iniciar Nuevo Viaje"
+                Title = "Iniciar Nuevo Viaje",
+                Color = "#e95936"
 
             });
 
@@ -47,7 +49,8 @@
             {
                 Icon = "fas-history",
                 PageName = "TravelPage",
-                Title = "Historial de Viajes"
+                Title = "Historial de Viajes",
+                Color = "#0ca6fe"
 
             });
 
@@ -55,7 +58,8 @@
             {
                 Icon = "fas-question-circle",
                 PageName = "QuestionPage",
-                Title = "Preguntas Frecuentes"
+                Title = "Preguntas Frecuentes",
+                Color = "#6178fc"
 
             });
         }

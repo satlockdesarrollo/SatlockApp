@@ -10,26 +10,25 @@
     Title="Inicio"
     BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ScrollView BackgroundColor="Transparent">
-        <RelativeLayout BindingContext="{Binding Home}">
+        <RelativeLayout BindingContext="{Binding Home}" BackgroundColor="Transparent">
             <!--<Image Source="fondo" RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}" />-->
-            <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"  VerticalOptions="Center"  Padding="20">
+            <Grid RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent, Property=Width}" RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent, Property=Height}"  VerticalOptions="Center" BackgroundColor="Transparent" Padding="10">
                 <flv:FlowListView FlowColumnCount="2" SeparatorVisibility="None" HasUnevenRows="true"
                 FlowItemsSource="{Binding Menus}" BackgroundColor="Transparent">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
-                            <custom:FrameRender CornerRadius="8" HasShadow="True" BackgroundColor="White" HorizontalOptions="Center" Margin="5" >
+                            <custom:FrameRender CornerRadius="8" HasShadow="True" BackgroundColor="White" HorizontalOptions="Center" Margin="15" >
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding NavigateCommand}" />
                                 </Frame.GestureRecognizers>
                                 <StackLayout Orientation="Vertical">
-                                    <iconize:IconImage HeightRequest="60" Icon="{Binding Icon}" IconColor="#e95936" WidthRequest="60" Margin="0,0,0,20"/>
-                                    <Label HorizontalTextAlignment="Center" Margin="0,20,0,0" FontAttributes="Bold" FontSize="Medium" Text="{Binding Title}" TextColor="#212121" />
+                                    <iconize:IconImage HeightRequest="40" Icon="{Binding Icon}" IconColor="{Binding Color}" WidthRequest="40" />
+                                    <Label HorizontalTextAlignment="Center" Margin="0,10,0,0" FontSize="Default" Text="{Binding Title}" TextColor="#212121" />
                                 </StackLayout>
                             </custom:FrameRender>
                         </DataTemplate>
                     </flv:FlowListView.FlowColumnTemplate>
                 </flv:FlowListView>
-
             </Grid>
         </RelativeLayout>
     </ScrollView>

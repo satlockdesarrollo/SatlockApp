@@ -60,7 +60,8 @@ namespace SatlockApp.Droid
         private void UpdateElevation()
         {
             if (Build.VERSION.SdkInt >= (BuildVersionCodes)21)
-                this.Elevation = Element.HasShadow ? 5 : 0;
+                this.Elevation = Element.HasShadow ? 24 : 0;
+                
         
         }
 

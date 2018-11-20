@@ -61,7 +61,7 @@
                                             HeightRequest="30"
                                             Margin="0,0,25,0"
                                             Icon="{Binding Icon}"
-                                            IconColor="White"
+                                            IconColor="{Binding Color}"
                                             WidthRequest="30" />
                                         <iconize:IconLabel
                                             FontSize="20"

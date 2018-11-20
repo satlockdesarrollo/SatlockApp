@@ -3,6 +3,8 @@ using SatlockApp.iOS;
 using Xamarin.Forms.Platform.iOS;
 using System.ComponentModel;
 using SatlockApp.Renders;
+using UIKit;
+using CoreGraphics;
 
 [assembly: ExportRenderer(typeof(Frame), typeof(FrameRender))]
 namespace SatlockApp.iOS
@@ -13,9 +15,12 @@ namespace SatlockApp.iOS
         {
             base.OnElementChanged(e);
 
-            Layer.ShadowOffset = new CoreGraphics.CGSize(-2, 2);
-            Layer.ShadowRadius = 5;
-            Layer.ShadowOpacity = 0.4f;
+            Layer.ShadowRadius = 2.0f;
+            Layer.ShadowColor = UIColor.Gray.CGColor;
+            Layer.ShadowOffset = new CGSize(2, 2);
+            Layer.ShadowOpacity = 0.20f;
+            Layer.ShadowPath = UIBezierPath.FromRect(Layer.Bounds).CGPath;
+            Layer.MasksToBounds = false;
         }
     }
 }

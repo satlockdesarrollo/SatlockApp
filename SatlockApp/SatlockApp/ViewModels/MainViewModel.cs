@@ -115,7 +115,8 @@
             {
                 Icon = "fas-user",
                 PageName = "ProfilePage",
-                Title = "Mi Perfil"
+                Title = "Mi Perfil",
+                Color = "White"
 
             });
 
@@ -123,7 +124,8 @@
             {
                 Icon = "fas-cogs",
                 PageName = "ConfigurationPage",
-                Title = "Opciones"
+                Title = "Opciones",
+                Color = "White"
 
             });
 
@@ -131,7 +133,8 @@
             {
                 Icon = "fas-comments",
                 PageName = "SupportPage",
-                Title = "Soporte"
+                Title = "Soporte",
+                Color = "White"
 
             });
 
@@ -139,7 +142,8 @@
             {
                 Icon = "fas-info-circle",
                 PageName = "LegalPage",
-                Title = "Acerca de"
+                Title = "Acerca de",
+                Color = "White"
 
             });
 
@@ -147,7 +151,8 @@
             {
                 Icon = "fas-door-open",
                 PageName = "LoginPage",
-                Title = "Cerrar Sesión"
+                Title = "Cerrar Sesión",
+                Color = "White"
 
             });
         }
