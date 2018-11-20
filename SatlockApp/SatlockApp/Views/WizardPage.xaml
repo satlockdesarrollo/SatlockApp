@@ -4,6 +4,8 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SatlockApp.Views.WizardPage"
     xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+    xmlns:custom="clr-namespace:SatlockApp.Renders" 
+    BindingContext="{Binding Main, Source={StaticResource Locator}}"
     Title="Verificación">
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -13,7 +15,7 @@
                 x:Key="SkipStyle">
                 <Setter
                     Property="FontSize"
-                    Value="14" />
+                    Value="16" />
                 <Setter
                     Property="TextColor"
                     Value="White" />
@@ -22,36 +24,43 @@
         </ResourceDictionary>
     </ContentPage.Resources>
     <ContentPage.Content>
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition
-                    Height="*" />
-                <RowDefinition
-                    Height="Auto" />
-            </Grid.RowDefinitions>
-            <carousel:CarouselViewControl
-                x:Name="Carousel"
-                Grid.Row="0"
-                Grid.RowSpan="2"
-                Orientation="Horizontal"
-                Position="0"
-                IsSwipeEnabled="True"
-                ShowIndicators="True"
-                CurrentPageIndicatorTintColor="LightGray"
-                IndicatorsTintColor="White"
-                HorizontalOptions="FillAndExpand"
-                VerticalOptions="FillAndExpand"
-                PositionSelected="OnCarouselPositionSelected" />
+        <StackLayout
+            BindingContext="{Binding Wizard}">
             <Grid
-                Grid.Row="1"
-                Padding="12"
-                VerticalOptions="EndAndExpand"
-                HorizontalOptions="EndAndExpand"
-                AutomationId="skip">
-                <Label
-                    Text="SKIP"
-                    Style="{StaticResource SkipStyle}" />
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+                            Height="*" />
+                    <RowDefinition
+                            Height="Auto" />
+                </Grid.RowDefinitions>
+                <carousel:CarouselViewControl
+                    x:Name="carouselWizard"
+                    ItemsSource="{Binding _views}"
+                    Grid.Row="0"
+                    Grid.RowSpan="2"
+                    Orientation="Horizontal"
+                    Position="0"
+                    IsSwipeEnabled="False"
+                    ShowIndicators="False"
+                    CurrentPageIndicatorTintColor="LightGray"
+                    IndicatorsTintColor="White"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand"
+                    PositionSelected="OnCarouselPositionSelected" />
+                <Grid
+                    Grid.Row="1"
+                    VerticalOptions="EndAndExpand">
+                    <StackLayout
+                        Orientation="Horizontal"
+                        Padding="10"
+                        BackgroundColor="#e95936">
+                        <custom:ButtonRender HorizontalOptions="StartAndExpand"  IsVisible="{Binding PrevEnabled, Mode=TwoWay}" Clicked="prevPage" CustomBorderColor="Transparent" TextColor="White" Text="Volver" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent"  />
+                        <custom:ButtonRender HorizontalOptions="EndAndExpand" IsVisible="{Binding NextEnabled, Mode=TwoWay}" Clicked="nextPage" CustomBorderColor="Transparent" TextColor="White" Text="Continuar" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" />
+                    </StackLayout>
+                </Grid>
             </Grid>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

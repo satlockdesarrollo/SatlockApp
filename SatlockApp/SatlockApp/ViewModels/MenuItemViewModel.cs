@@ -64,6 +64,12 @@
                     await App.Navigator.PushAsync(new WizardPage());
 
                     break;
+                case "ProfilePage":
+
+                    MainViewModel.GetInstance().Profile = new ProfileViewModel();
+                    await App.Navigator.PushAsync(new ProfilePage());
+
+                    break;
                 default:
 
                     break;

@@ -45,6 +45,44 @@
             };
         }
 
+        public async Task<Response> validateMobile(string urlBase, string serviceprefix, string controller, string parameters, string accessToken, string username)
+        {
+
+            try
+            {
+
+                var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Add("User", username);
+                string url_api = urlBase + serviceprefix + controller +parameters;
+                var uri = new Uri(string.Format(url_api, string.Empty));
+                var response = await client.GetAsync(url_api);
+                var result = await response.Content.ReadAsStringAsync();
+
+                if (!response.IsSuccessStatusCode)
+                {
+                    var error = JsonConvert.DeserializeObject<Response>(result);
+                    error.IsSuccess = false;
+                    return error;
+                }
+
+                var data_result = JsonConvert.DeserializeObject<Response>(result);
+                data_result.IsSuccess = true;
+
+                return data_result;
+
+
+            }
+            catch (Exception ex)
+            {
+                return new Response
+                {
+                    IsSuccess = false,
+                    Message = ex.Message,
+                };
+            }
+        }
+
         public async Task<Response> getTrips<T>(string urlBase, string serviceprefix, string controller, string accessToken, string username)
         {
             try
@@ -66,7 +104,6 @@
 
                 var data_result = JsonConvert.DeserializeObject<Response>(result);
                 var list = JsonConvert.DeserializeObject<List<TripsRequest>>(data_result.Data.ToString());
-
 
 
                 return new Response

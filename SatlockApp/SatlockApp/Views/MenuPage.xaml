@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
              x:Class="SatlockApp.Views.MenuPage" 
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              BindingContext="{Binding Main, Source={StaticResource Locator}}" 
              BackgroundColor="#e95936" 
              Title="Menu">
@@ -17,12 +18,19 @@
                 </RowDefinition>
             </Grid.RowDefinitions>
             <StackLayout BackgroundColor="Transparent" Orientation="Horizontal" Grid.Row="0" >
-                <iconize:IconImage
+                <forms:AnimationView 
+	                Animation="avatar_animations.json" 
+	                Loop="true" 
+                    Margin="0,0,25,0"
+                    WidthRequest="60"
+                    HeightRequest="60"
+	                AutoPlay="true" />
+                <!--<iconize:IconImage
                     HeightRequest="50"
                     Icon="fas-user-circle"
                     Margin="0,0,25,0"
                     IconColor="White"
-                    WidthRequest="50" />
+                    WidthRequest="50" />-->
                 <Label x:Name="userText" 
                     Text="Nombre de Usuario" 
                     TextColor="#FAFAFA"

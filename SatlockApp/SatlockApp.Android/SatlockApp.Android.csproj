@@ -116,12 +116,14 @@
     <Compile Include="RefreshRender.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShadowFrameRender.cs" />
     <Compile Include="SplashActivity.cs" />
     <Compile Include="ToastInterface.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\transfer.json" />
     <AndroidAsset Include="Assets\scan_qr.json" />
+    <AndroidAsset Include="Assets\avatar_animations.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

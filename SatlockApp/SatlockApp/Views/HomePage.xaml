@@ -5,6 +5,7 @@
     x:Class="SatlockApp.Views.HomePage" 
     xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize"
     xmlns:flv="clr-namespace:DLToolkit.Forms.Controls;assembly=DLToolkit.Forms.Controls.FlowListView"
+     xmlns:custom="clr-namespace:SatlockApp.Renders" 
     BackgroundColor="#F5F5F5"
     Title="Inicio"
     BindingContext="{Binding Main, Source={StaticResource Locator}}">
@@ -16,7 +17,7 @@
                 FlowItemsSource="{Binding Menus}" BackgroundColor="Transparent">
                     <flv:FlowListView.FlowColumnTemplate>
                         <DataTemplate>
-                            <Frame CornerRadius="8" HasShadow="false" BackgroundColor="White" HorizontalOptions="Center" Margin="5" >
+                            <custom:FrameRender CornerRadius="8" HasShadow="True" BackgroundColor="White" HorizontalOptions="Center" Margin="5" >
                                 <Frame.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding NavigateCommand}" />
                                 </Frame.GestureRecognizers>
@@ -24,7 +25,7 @@
                                     <iconize:IconImage HeightRequest="60" Icon="{Binding Icon}" IconColor="#e95936" WidthRequest="60" Margin="0,0,0,20"/>
                                     <Label HorizontalTextAlignment="Center" Margin="0,20,0,0" FontAttributes="Bold" FontSize="Medium" Text="{Binding Title}" TextColor="#212121" />
                                 </StackLayout>
-                            </Frame>
+                            </custom:FrameRender>
                         </DataTemplate>
                     </flv:FlowListView.FlowColumnTemplate>
                 </flv:FlowListView>

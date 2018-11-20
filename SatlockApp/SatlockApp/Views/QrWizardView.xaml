@@ -67,7 +67,9 @@
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
-                <custom:ButtonRender  Margin="20,10,20,0"  Command="{Binding ActiveScan, Mode=TwoWay}" CustomBorderColor="#e95936" TextColor="#e95936" Text="Escanear Unidad" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" VerticalOptions="Center" />
+                <custom:ButtonRender  Margin="20,10,20,10" IsVisible="{Binding ScanEnabled, Mode=TwoWay}"  Command="{Binding ActiveScan, Mode=TwoWay}" CustomBorderColor="#e95936" TextColor="#e95936" Text="Escanear Unidad" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" VerticalOptions="Center" />
+                <ActivityIndicator Color="#e95936" IsRunning="{Binding Loading, Mode=TwoWay}" HorizontalOptions="CenterAndExpand">
+                </ActivityIndicator>
             </StackLayout>
         </Grid>
     </ContentView.Content>

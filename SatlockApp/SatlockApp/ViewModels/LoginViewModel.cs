@@ -100,6 +100,7 @@
 
             this.Loading = true;
             this.SesionEnabled = false;
+
             var connection = await this.Api.CheckConnection();
             if (!connection.IsSuccess)
             {

@@ -114,6 +114,7 @@
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\transfer.json" />
     <BundleResource Include="Resources\scan_qr.json" />
+    <BundleResource Include="Resources\avatar_animations.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
