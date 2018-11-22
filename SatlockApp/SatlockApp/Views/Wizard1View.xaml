@@ -2,30 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SatlockApp.Views.Wizard1View"
-             xmlns:xamanimation="clr-namespace:Xamanimation;assembly=Xamanimation"
              xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms">
-    <ContentView.Resources>
-        <ResourceDictionary>
-            <xamanimation:ColorAnimation
-                x:Key="BackgroundColorAnimation"
-                Target="{x:Reference MainPanel}"
-                ToColor="{StaticResource WizardBackgroundColor}"
-                Duration="500" />
-
-            <xamanimation:StoryBoard
-                x:Key="InfoPanelAnimation"
-                Target="{x:Reference InfoPanel}">
-                <xamanimation:FadeToAnimation
-                    Duration="50"
-                    Opacity="1" />
-                <xamanimation:TranslateToAnimation
-                    TranslateY="0"
-                    Easing="CubicIn"
-                    Duration="100" />
-            </xamanimation:StoryBoard>
-
-        </ResourceDictionary>
-    </ContentView.Resources>
     <ContentView.Content>
         <Grid
         x:Name="MainPanel"
@@ -45,9 +22,7 @@
                 x:Name="InfoPanel"
                 Margin="0,10,0,0"
                 Grid.Row="1"
-                VerticalOptions="Start"
-                Opacity="0"
-                TranslationY="250">
+                VerticalOptions="Start">
                 <Label
                 Text="Consectetur adipiscing elit"
                 Style="{StaticResource TutorialTitle}" />

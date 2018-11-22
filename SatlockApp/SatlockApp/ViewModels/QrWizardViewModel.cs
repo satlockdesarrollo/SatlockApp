@@ -14,18 +14,23 @@
     using Renders;
     using Models;
     using Helpers;
-
+    using System.Collections.ObjectModel;
+    using Newtonsoft.Json;
 
     public class QrWizardViewModel : BaseViewModel
     {
         private PermissionValidator Permiso;
         private ApiService Api;
         private EncodeBase64 Codificator;
+        private WizardViewModel Wizard;
+        private MapWizardViewModel MapWizard;
 
         private string token;
         private string user;
         private bool loading;
-        private bool scanenabled;
+        private bool scanEnabled;
+        private bool isAnalyzing;
+        private bool isScanning;
         private string initialDate;
         private string finalDate;
 
@@ -45,12 +50,43 @@
         {
             get
             {
-                return this.scanenabled;
+                return this.scanEnabled;
             }
             set
             {
-                SetValue(ref this.scanenabled, value);
+                SetValue(ref this.scanEnabled, value);
             }
+        }
+
+        public bool IsScanning
+        {
+            get
+            {
+                return this.isScanning;
+            }
+            set
+            {
+                SetValue(ref this.isScanning, value);
+            }
+
+        }
+
+        public bool IsAnalyzing
+        {
+            get
+            {
+                return this.isAnalyzing;
+            }
+            set
+            {
+                SetValue(ref this.isAnalyzing, value);
+            }
+        }
+
+        public ZXing.Result Result
+        {
+            get;
+            set;
         }
 
         #region Commands
@@ -79,12 +115,14 @@
             }
             else
             {
-                
-                var ScannerPage = new ZXingScannerPage();
-                ScannerPage.DefaultOverlayShowFlashButton = true;
-                ScannerPage.DefaultOverlayTopText = "Alinear el código de barras dentro del marco";
-                ScannerPage.Title = "Escanear Codigo QR";
+                var expectedFormat = ZXing.BarcodeFormat.QR_CODE;
+                var opts = new ZXing.Mobile.MobileBarcodeScanningOptions
+                {
+                    PossibleFormats = new List<ZXing.BarcodeFormat> { expectedFormat }
+                };
 
+                var ScannerPage = new ZXingScannerPage(opts);
+                               
                 ScannerPage.OnScanResult += (result) =>
                 {
                     ScannerPage.IsScanning = false;
@@ -122,9 +160,10 @@
 
             var apiUrl = Application.Current.Resources["APIUrlDev"].ToString();
 
-            string parameters = "?imei="+imei+"&fic="+this.initialDate+"&ffc="+this.finalDate;
+            //string parameters = "?imei="+imei+"&fic="+this.initialDate+"&ffc="+this.finalDate;
+            string parameters = "?imei="+imei+ "&fic=MjAxOC0xMS0xMyAwMDowMDowMA==&ffc=MjAxOC0xMS0xNSAyMzo1OTo1OQ==";
 
-            var response = await this.Api.validateMobile(
+            var response = await this.Api.validateMobile<Response>(
                 apiUrl,
                 "/Controller",
                 "/ValidacionSelloController.php",
@@ -145,9 +184,51 @@
                 this.ScanEnabled = true;
 
                 return;
-
-
             }
+
+            await Application.Current.MainPage.DisplayAlert(
+                   "Exito",
+                   response.Message,
+                   "Aceptar");
+
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.EventsMobile = (MobileRequest) response.Data;
+
+            var temp1 = JsonConvert.SerializeObject(mainViewModel.EventsMobile);
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(temp1);
+            var temp2 = System.Convert.ToBase64String(plainTextBytes);
+
+            this.MapWizard.MapUrl = "https://www.ultrackonline.com/pagos/webview/mapa2.html?data%" + temp2;
+            
+            this.Loading = false;
+            this.ScanEnabled = true;
+
+            this.Wizard.NextEnabled = true;
+
+            
+
+
+        }
+
+        public ICommand QRScanResult
+        {
+            get
+            {
+                return new RelayCommand(ResultScan);
+            }
+
+        }
+
+        private void ResultScan()
+        {
+            this.IsAnalyzing = false;
+            this.IsScanning = false;
+
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                this.finalDate = this.Codificator.EncodeTo64(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
+                this.ValidateQr(Result.Text);
+            });
 
         }
         #endregion
@@ -159,6 +240,9 @@
             this.Loading = false;
             this.ScanEnabled = true;
 
+            this.IsAnalyzing = false;
+            this.IsScanning = false;
+
             this.Permiso = new PermissionValidator();
             this.Api = new ApiService();
             this.Codificator = new EncodeBase64();
@@ -166,6 +250,8 @@
             var mainViewModel = MainViewModel.GetInstance();
             this.token = mainViewModel.Token;
             this.user = mainViewModel.User;
+            this.Wizard = mainViewModel.Wizard;
+            this.MapWizard = mainViewModel.MapWizard;
 
             this.initialDate = this.Codificator.EncodeTo64(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
     

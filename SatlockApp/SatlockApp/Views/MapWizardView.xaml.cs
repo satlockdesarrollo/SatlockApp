@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using SatlockApp.Renders;
-using Xamanimation;
 
 namespace SatlockApp.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class QrWizardView : ContentView
+    public partial class MapWizardView : ContentView
     {
-        public QrWizardView()
+        public MapWizardView()
         {
             InitializeComponent();
+
+
         }
 
     }

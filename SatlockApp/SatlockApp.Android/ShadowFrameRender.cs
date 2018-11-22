@@ -23,48 +23,13 @@ namespace SatlockApp.Droid
         {
 
             base.OnElementChanged(e);
-
-            if (Element == null)
+            if (e.NewElement != null)
             {
-                return;
+                ViewGroup.SetBackgroundResource(Resource.Drawable.Shadow);
             }
 
-            UpdateBackground();
-            UpdateElevation();
 
         }
-
-        protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            base.OnElementPropertyChanged(sender, e);
-
-            if (string.Equals(e.PropertyName, "BackgroundColor"))
-            {
-                UpdateBackground();
-            }
-            else if (string.Equals(e.PropertyName, "HasShadow"))
-            {
-                UpdateElevation();
-            }
-        }
-
-        private void UpdateBackground()
-        {
-            int[] colors = { Element.BackgroundColor.ToAndroid(), Element.BackgroundColor.ToAndroid() };
-            var gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.LeftRight, colors);
-            gradientDrawable.SetCornerRadius(Element.CornerRadius * 2); // CornerRadius = HeightRequest in my case
-
-            this.SetBackground(gradientDrawable);
-        }
-
-        private void UpdateElevation()
-        {
-            if (Build.VERSION.SdkInt >= (BuildVersionCodes)21)
-                this.Elevation = Element.HasShadow ? 24 : 0;
-                
-        
-        }
-
 
     }
 }

@@ -12,24 +12,12 @@
     using SatlockApp.Renders;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Wizard1View : IAnimated
+    public partial class Wizard1View : ContentView
     {
         public Wizard1View()
         {
             InitializeComponent();
         }
 
-        public void StartAnimation()
-        {
-            if (Resources["BackgroundColorAnimation"] is ColorAnimation backgroundColorAnimation)
-            {
-                backgroundColorAnimation.Begin();
-            }
-
-            if (Resources["InfoPanelAnimation"] is StoryBoard infoPanelAnimation)
-            {
-                infoPanelAnimation.Begin();
-            }
-        }
     }
 }

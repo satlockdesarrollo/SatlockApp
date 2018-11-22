@@ -3,10 +3,11 @@
     xmlns="http://xamarin.com/schemas/2014/forms" 
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SatlockApp.Views.WizardPage"
+    xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
     xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
     xmlns:custom="clr-namespace:SatlockApp.Renders" 
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    Title="Verificación">
+    BackgroundColor="#F5F5F5">
     <ContentPage.Resources>
         <ResourceDictionary>
 
@@ -41,14 +42,13 @@
                     Grid.Row="0"
                     Grid.RowSpan="2"
                     Orientation="Horizontal"
-                    Position="0"
+                    Position="{Binding PositionWizard}"
                     IsSwipeEnabled="False"
                     ShowIndicators="False"
                     CurrentPageIndicatorTintColor="LightGray"
                     IndicatorsTintColor="White"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand"
-                    PositionSelected="OnCarouselPositionSelected" />
+                    VerticalOptions="FillAndExpand" />
                 <Grid
                     Grid.Row="1"
                     VerticalOptions="EndAndExpand">
@@ -56,9 +56,12 @@
                         Orientation="Horizontal"
                         Padding="10"
                         BackgroundColor="#e95936">
-                        <custom:ButtonRender HorizontalOptions="StartAndExpand"  IsVisible="{Binding PrevEnabled, Mode=TwoWay}" Clicked="prevPage" CustomBorderColor="Transparent" TextColor="White" Text="Volver" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent"  />
-                        <custom:ButtonRender HorizontalOptions="EndAndExpand" IsVisible="{Binding NextEnabled, Mode=TwoWay}" Clicked="nextPage" CustomBorderColor="Transparent" TextColor="White" Text="Continuar" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" />
-                    </StackLayout>
+                        <iconize:IconButton HorizontalOptions="StartAndExpand"  IsVisible="{Binding PrevEnabled, Mode=TwoWay}" Command="{Binding PrevSlide, Mode=TwoWay}" FontSize="20" Text="fas-angle-double-left" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
+                        <iconize:IconButton HorizontalOptions="StartAndExpand"  IsVisible="{Binding CloseEnabled, Mode=TwoWay}" Command="{Binding CloseSlide, Mode=TwoWay}" FontSize="20" Text="fas-times" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
+                        <custom:ButtonRender HorizontalOptions="CenterAndExpand" IsVisible="{Binding SkipEnabled, Mode=TwoWay}" Command="{Binding SkipSlide, Mode=TwoWay}" CustomBorderColor="Transparent" TextColor="White" Text="Omitir" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" />
+                        <iconize:IconButton HorizontalOptions="EndAndExpand" IsVisible="{Binding CheckEnabled, Mode=TwoWay} " Command="{Binding CloseSlide, Mode=TwoWay}" FontSize="20" Text="fas-check" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
+                        <iconize:IconButton HorizontalOptions="EndAndExpand"  IsVisible="{Binding NextEnabled, Mode=TwoWay}" Command="{Binding NextSlide, Mode=TwoWay}" FontSize="20" Text="fas-angle-double-right" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
+                     </StackLayout>
                 </Grid>
             </Grid>
         </StackLayout>

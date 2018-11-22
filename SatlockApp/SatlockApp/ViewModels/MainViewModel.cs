@@ -20,6 +20,12 @@
             set;
         }
 
+        public MobileRequest EventsMobile
+        {
+            get;
+            set;
+        }
+
         public string Token
         {
             get;
@@ -71,6 +77,12 @@
         }
 
         public QrWizardViewModel QrWizard
+        {
+            get;
+            set;
+        }
+
+        public MapWizardViewModel MapWizard
         {
             get;
             set;

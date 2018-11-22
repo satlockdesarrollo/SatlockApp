@@ -2,6 +2,7 @@
 {
     using System;
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.Net.Http;
     using System.Net.Http.Headers;
     using System.Text;
@@ -45,7 +46,7 @@
             };
         }
 
-        public async Task<Response> validateMobile(string urlBase, string serviceprefix, string controller, string parameters, string accessToken, string username)
+        public async Task<Response> validateMobile<T>(string urlBase, string serviceprefix, string controller, string parameters, string accessToken, string username)
         {
 
             try
@@ -67,9 +68,14 @@
                 }
 
                 var data_result = JsonConvert.DeserializeObject<Response>(result);
-                data_result.IsSuccess = true;
+                var events = JsonConvert.DeserializeObject<MobileRequest>(data_result.Data.ToString());
 
-                return data_result;
+                return new Response
+                {
+                    IsSuccess = true,
+                    Message = data_result.Message,
+                    Data = events
+                };
 
 
             }

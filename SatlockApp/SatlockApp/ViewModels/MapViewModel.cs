@@ -31,8 +31,6 @@
             this.Trip = TripItem;
             this.Title = TripItem.Sello;
 
-
-
             var temp1 = JsonConvert.SerializeObject(TripItem);
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(temp1);
             var temp2 = System.Convert.ToBase64String(plainTextBytes);
