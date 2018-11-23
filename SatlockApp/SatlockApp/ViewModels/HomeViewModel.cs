@@ -39,7 +39,7 @@
             this.Menus.Add(new MenuItemViewModel
             {
                 Icon = "fas-route",
-                PageName = "NewTravelPage",
+                PageName = "MapPage",
                 Title = "Iniciar Nuevo Viaje",
                 Color = "#e95936"
 

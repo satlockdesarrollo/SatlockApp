@@ -8,8 +8,9 @@
     <ContentPage.Content>
         <StackLayout
            BindingContext="{Binding Map}">
-            
-            
+            <Grid>
+                <webview:FormsWebView x:Name="localContent" ContentType="LocalFile" Source="map.html" />
+            </Grid>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
