@@ -23,7 +23,6 @@
         private ApiService Api;
         private EncodeBase64 Codificator;
         private WizardViewModel Wizard;
-        private MapWizardViewModel MapWizard;
 
         private string token;
         private string user;
@@ -198,7 +197,7 @@
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(temp1);
             var temp2 = System.Convert.ToBase64String(plainTextBytes);
 
-            this.MapWizard.MapUrl = "https://www.ultrackonline.com/pagos/webview/mapa2.html?data%" + temp2;
+            //this.MapWizard.MapUrl = "https://www.ultrackonline.com/pagos/webview/mapa2.html?data%" + temp2;
             
             this.Loading = false;
             this.ScanEnabled = true;
@@ -251,7 +250,7 @@
             this.token = mainViewModel.Token;
             this.user = mainViewModel.User;
             this.Wizard = mainViewModel.Wizard;
-            this.MapWizard = mainViewModel.MapWizard;
+           
 
             this.initialDate = this.Codificator.EncodeTo64(DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"));
     

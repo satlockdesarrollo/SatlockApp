@@ -82,11 +82,6 @@
             set;
         }
 
-        public MapWizardViewModel MapWizard
-        {
-            get;
-            set;
-        }
         #endregion
 
         #region Contructors
