@@ -27,6 +27,7 @@ namespace SatlockApp.ViewModels
         public MapWizardViewModel()
         {
 
+            this.MapUrl = "https://google.com.co";
            
         }
     }
