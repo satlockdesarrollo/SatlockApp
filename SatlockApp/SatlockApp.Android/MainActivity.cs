@@ -9,7 +9,7 @@ using Android.OS;
 using Android.Graphics;
 using CarouselView.FormsPlugin.Android;
 using Plugin.Permissions;
-
+using Xam.Plugin.WebView.Droid;
 
 namespace SatlockApp.Droid
 {
@@ -26,6 +26,7 @@ namespace SatlockApp.Droid
             CarouselViewRenderer.Init();
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
+            FormsWebViewRenderer.Initialize();
             Window.SetStatusBarColor(Color.ParseColor("#b44800"));
             // AnimationViewRenderer.Init();
             LoadApplication(new App());
