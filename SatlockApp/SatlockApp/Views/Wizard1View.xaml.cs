@@ -8,7 +8,6 @@
 
     using Xamarin.Forms;
     using Xamarin.Forms.Xaml;
-    using Xamanimation;
     using SatlockApp.Renders;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]

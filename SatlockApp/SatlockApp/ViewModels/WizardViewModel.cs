@@ -116,7 +116,7 @@
             if (this.PositionWizard != 0)
             {
 
-                if (this.PositionWizard + 1 == this._views.Length - 2)
+                if (this.PositionWizard + 1 == this._views.Length - 1)
                 {
                     this.NextEnabled = false;
                     this.SkipEnabled = false;
@@ -157,7 +157,7 @@
             {
                 this.PositionWizard = this.PositionWizard - 1;
 
-                if (this.PositionWizard != this._views.Length - 2)
+                if (this.PositionWizard != this._views.Length - 1)
                 {
                     this.NextEnabled = true;
                     this.SkipEnabled = true;
@@ -190,7 +190,7 @@
 
         private void Skip()
         {
-            this.PositionWizard = this._views.Length - 2;
+            this.PositionWizard = this._views.Length - 1;
             this.NextEnabled = false;
             this.PrevEnabled = true;
             this.SkipEnabled = false;
@@ -238,7 +238,7 @@
                 new Wizard1View(),
                 new Wizard1View(),
                 new QrWizardView(),
-                new MapWizardView()
+     
               
             };
 

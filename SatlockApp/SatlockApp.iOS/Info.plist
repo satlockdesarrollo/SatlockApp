@@ -59,5 +59,7 @@
 	<array>
 		<string>iconize-fontawesome-solid.ttf</string>
 	</array>
+	<key>UIMainStoryboardFile</key>
+	<string>LaunchScreen</string>
 </dict>
 </plist>

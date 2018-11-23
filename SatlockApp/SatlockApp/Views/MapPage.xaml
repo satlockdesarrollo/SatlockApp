@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SatlockApp.Views.MapPage"
@@ -7,9 +7,10 @@
     <ContentPage.Content>
         <StackLayout
            BindingContext="{Binding Map}">
-            <WebView 
+            <!--<WebView 
                 VerticalOptions="FillAndExpand"
-                Source="{Binding MapUrl}"></WebView>
+                Source="https://google.com.co" />-->
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

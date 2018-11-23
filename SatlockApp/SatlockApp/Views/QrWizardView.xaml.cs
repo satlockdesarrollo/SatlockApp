@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SatlockApp.Renders;
-using Xamanimation;
 
 namespace SatlockApp.Views
 {
