@@ -12,7 +12,7 @@
             <x:String x:Key="PingUrl">https://www.google.com/</x:String>
 
             <Color
-                x:Key="WizardBackgroundColor">#F5F5F5</Color>
+                x:Key="WizardBackgroundColor">#FFFFFF</Color>
 
             <Style
                 TargetType="Label"

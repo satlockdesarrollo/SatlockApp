@@ -20,6 +20,8 @@
         private string password;
         private bool loading;
         private bool sesionenabled;
+        private bool showPass;
+        private string iconSee;
         #endregion
 
         #region Propierties
@@ -69,6 +71,32 @@
             {
                 SetValue(ref this.sesionenabled, value);
             }
+        }
+
+        public bool ShowPass
+        {
+            get
+            {
+                return this.showPass;
+            }
+            set
+            {
+                SetValue(ref this.showPass, value);
+            }
+
+        }
+
+        public string IconSee
+        {
+            get
+            {
+                return this.iconSee;
+            }
+            set
+            {
+                SetValue(ref this.iconSee, value);
+            }
+
         }
         #endregion
 
@@ -170,6 +198,33 @@
             Application.Current.MainPage = new MasterPage();
 
         }
+
+        public ICommand SeePass
+        {
+            get
+            {
+                return new RelayCommand(See);
+            }
+
+        }
+
+        private void See()
+        {
+
+            if(this.ShowPass){
+
+                this.ShowPass = false;
+                this.IconSee = "fas-eye-slash";
+
+            }
+            else
+            {
+
+                this.ShowPass = true;
+                this.IconSee = "fas-eye";
+            }
+
+        }
         #endregion
 
         #region Constructor
@@ -177,6 +232,8 @@
         {
             this.Loading = false;
             this.SesionEnabled = true;
+            this.ShowPass = true;
+            this.IconSee = "fas-eye";
 
             this.Api = new ApiService();
 

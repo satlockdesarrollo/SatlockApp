@@ -14,7 +14,7 @@
             <forms:AnimationView 
 	            x:Name="animationView" 
 	            Grid.Row="0"
-	            Animation="transfer.json" 
+	            Animation="data.json" 
 	            Loop="true" 
                 HeightRequest="200"
 	            AutoPlay="true" />

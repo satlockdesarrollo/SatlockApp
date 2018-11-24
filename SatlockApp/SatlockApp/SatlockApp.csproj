@@ -21,6 +21,7 @@
     <PackageReference Include="Xam.Plugin.Connectivity" Version="4.0.0.190-beta" />
     <PackageReference Include="Xam.Plugin.Iconize" Version="3.3.0.93" />
     <PackageReference Include="Xam.Plugin.Iconize.FontAwesome" Version="3.3.0.93" />
+    <PackageReference Include="Xam.Plugin.WebView" Version="2.1.3" />
     <PackageReference Include="Xam.Plugins.Settings" Version="4.0.0.10-beta" />
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="ZXing.Net.Mobile" Version="2.4.1" />

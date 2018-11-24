@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="SatlockApp.Views.LoginPage" 
     xmlns:custom="clr-namespace:SatlockApp.Renders" 
+    xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
     BackgroundImage="fondo" 
     BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <RelativeLayout BindingContext="{Binding Login}">
@@ -27,12 +28,27 @@
                 <StackLayout Grid.Row="1" Padding="20">
                     <Label Text="Nombre de Usuario" TextColor="White">
                     </Label>
-                    <custom:EntryRender Text="{Binding Username, Mode=TwoWay}" Keyboard="Email" Placeholder="example">
-                    </custom:EntryRender>
-                    <Label Margin="0,20,0,0" Text="Contraseña" TextColor="White">
-                    </Label>
-                    <custom:EntryRender Text="{Binding Password, Mode=TwoWay}" IsPassword="true" Placeholder="********">
-                    </custom:EntryRender>
+                    <custom:EntryRender Text="{Binding Username, Mode=TwoWay}" Keyboard="Email" />
+                    <Label Margin="0,20,0,0" Text="Contraseña" TextColor="White" />
+                    <StackLayout Grid.Row="2" Grid.Column="1">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions >
+                            <custom:EntryRender Text="{Binding Password, Mode=TwoWay}" IsPassword="{Binding ShowPass, Mode=TwoWay}" Grid.Column="0" Grid.ColumnSpan="2" />
+                            <iconize:IconImage
+                                 HeightRequest="25" WidthRequest="25"
+                                 Margin="0,0,8,0"
+                                 Icon="{Binding IconSee}"
+                                 IconColor="LightGray"
+                                 HorizontalOptions="End" VerticalOptions="Center" Grid.Column="1">
+                                <iconize:IconImage.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SeePass}" NumberOfTapsRequired="1" />
+                                </iconize:IconImage.GestureRecognizers>
+                            </iconize:IconImage>
+                        </Grid>
+                    </StackLayout>
                     <custom:ButtonRender  Margin="0,20,0,0"  IsVisible="{Binding SesionEnabled, Mode=TwoWay}" Command="{Binding Sesion, Mode=TwoWay}" CustomBorderColor="White" TextColor="White" Text="Iniciar sesión" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" VerticalOptions="Center" />
                 </StackLayout>
                 <StackLayout Grid.Row="2">

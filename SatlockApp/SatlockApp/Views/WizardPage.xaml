@@ -7,7 +7,7 @@
     xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
     xmlns:custom="clr-namespace:SatlockApp.Renders" 
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
-    BackgroundColor="#F5F5F5">
+    BackgroundColor="White">
     <ContentPage.Resources>
         <ResourceDictionary>
 

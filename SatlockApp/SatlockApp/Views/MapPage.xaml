@@ -4,12 +4,21 @@
              x:Class="SatlockApp.Views.MapPage"
              xmlns:webview="clr-namespace:Xam.Plugin.WebView.Abstractions;assembly=Xam.Plugin.WebView.Abstractions"
              BackgroundColor="White"
+             Title="Mapa"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout
            BindingContext="{Binding Map}">
-            <Grid>
-                <webview:FormsWebView x:Name="localContent" ContentType="LocalFile" Source="map.html" />
+            <ActivityIndicator x:Name="Loader" Color="#e95936" HorizontalOptions="CenterAndExpand" />
+            <Grid 
+                VerticalOptions="FillAndExpand"
+                  HorizontalOptions="FillAndExpand">
+                <webview:FormsWebView
+                    x:Name="localContent" 
+                    ContentType="LocalFile" 
+                    Source="map.html"
+                    OnNavigationStarted="OnNavigationStarted" OnNavigationCompleted="OnNavigationCompleted"
+                    OnContentLoaded="OnContentLoaded" OnNavigationError="OnNavigationError"/>
             </Grid>
         </StackLayout>
     </ContentPage.Content>

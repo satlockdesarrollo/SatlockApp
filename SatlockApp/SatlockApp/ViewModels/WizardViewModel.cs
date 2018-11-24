@@ -123,12 +123,6 @@
 
                 }
 
-                if(this.PositionWizard + 1 == this._views.Length - 1)
-                {
-                    this.CheckEnabled = true;
-                    this.NextEnabled = false;
-                }
-
                 this.PositionWizard = this.PositionWizard + 1;
 
             }
@@ -195,6 +189,7 @@
             this.PrevEnabled = true;
             this.SkipEnabled = false;
             this.CloseEnabled = false;
+            this.CheckEnabled = false;
         }
 
         public ICommand CloseSlide
