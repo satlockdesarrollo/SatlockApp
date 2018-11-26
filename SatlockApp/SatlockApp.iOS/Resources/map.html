@@ -2,65 +2,58 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
-	<title></title>
 
-	<meta charset="utf-8" />
+    <title></title>
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
 
- 
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-  
+
     <style>
-    *{
-        font-family: 'Nunito', sans-serif;
-    }
+        * {
+            font-family: 'Nunito', sans-serif;
+        }
 
-    html, body {
-        height: 100%;
-        margin: 0;
-    }
-    body { 
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
 
-        padding: 0; 
-        margin: 0; 
-    } 
-    #map { 
+        body {
+            padding: 0;
+            margin: 0;
+        }
 
-        height: 100%; 
-        width: 100vw; 
-        z-index: 0;
-    }
+        #map {
+            height: 100%;
+            width: 100vw;
+            z-index: 0;
+        }
     </style>
 
-    
 </head>
 <body>
-
-    <div id='map'> 
+    <div id='map'>
         <div class="leaflet-top leaflet-right">
-            <div class="leaflet-bar leaflet-control" >
+            <div class="leaflet-bar leaflet-control">
                 <button type="button" class="btn btn-light" onclick="center()"><i class="fa fa-location-arrow"></i>
             </div>
-        </div>    
+        </div>
     </div>
+    <script>var map = L.map('map').fitWorld();
 
-    <script>
-        
-        var map = L.map('map').fitWorld();
-                    
         L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 18, attribution: 'Google Maps', subdomains:['mt0','mt1','mt2','mt3']
         }).addTo(map);
 
         var Icon = L.icon({
                 iconUrl: 'https://www.ultrackonline.com/pagos/webview/resources/marker.png',
-                iconSize:     [40 , 40]
+                iconSize: [40 , 40]
         });
 
         let ubication = [4.6420856,-78.8348806];
@@ -68,23 +61,26 @@
         function onLocation(){
 
             L.marker(ubication, {icon: Icon}).addTo(map);
-            map.setView(ubication, 6 , { animation: true });           
+            map.setView(ubication, 6 , { animation: true });
 
         }
 
         /*function center(){
 
-            
-            map.setView(ubication, 16 , { animation: true }); 
+
+            map.setView(ubication, 16 , { animation: true });
 
         }*/
 
         this.onLocation();
-        
-        
-    </script>
 
+        function doWork(lat, long){
 
+            console.log("hola"+lat+"---"+long);
+
+            alert("Holaaaaaa"+lat+"---"+long);
+
+        }</script>
 
 </body>
 </html>
