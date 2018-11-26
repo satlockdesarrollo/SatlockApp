@@ -5,38 +5,31 @@
 
     public class MapViewModel : BaseViewModel
     {
+        private bool isLoading;
+
+
         #region Propperties
-        public TripItemViewModel Trip
+        public bool IsLoading
         {
-            get;
-            set;
+            get
+            {
+                return this.isLoading;
+            }
+            set
+            {
+                SetValue(ref this.isLoading, value);
+            }
         }
 
-        public string Title
-        {
-            get;
-            set;
-        }
 
-        public string MapUrl
-        {
-            get;
-            set;
-        }
         #endregion
 
         #region Constructors
-        public MapViewModel(TripItemViewModel TripItem)
+        public MapViewModel()
         {
-            this.Trip = TripItem;
-            this.Title = TripItem.Sello;
 
-            var temp1 = JsonConvert.SerializeObject(TripItem);
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(temp1);
-            var temp2 = System.Convert.ToBase64String(plainTextBytes);
+           
 
-
-            this.MapUrl = "https://www.ultrackonline.com/pagos/webview/mapa1.html?data%" + temp2;
 
         }
         #endregion

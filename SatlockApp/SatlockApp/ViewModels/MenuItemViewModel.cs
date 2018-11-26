@@ -62,7 +62,6 @@
                 case "WizardPage":
 
                     MainViewModel.GetInstance().Wizard = new WizardViewModel();
-                    //MainViewModel.GetInstance().MapWizard = new MapWizardViewModel();
                     MainViewModel.GetInstance().QrWizard = new QrWizardViewModel();
 
                     await App.Navigator.PushAsync(new WizardPage());

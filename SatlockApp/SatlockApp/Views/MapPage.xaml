@@ -9,12 +9,13 @@
     <ContentPage.Content>
         <StackLayout
            BindingContext="{Binding Map}">
-            <ActivityIndicator x:Name="Loader" Color="#e95936" HorizontalOptions="CenterAndExpand" />
+            <Button Text="Fire JS event" Grid.Row="1" Grid.Column="0" Clicked="Button_Clicked" />
             <Grid 
                 VerticalOptions="FillAndExpand"
                   HorizontalOptions="FillAndExpand">
+                <ActivityIndicator x:Name="Loader" Color="#e95936" IsRunning="True" HorizontalOptions="CenterAndExpand" />
                 <webview:FormsWebView
-                    x:Name="localContent" 
+                    x:Name="Webview" 
                     ContentType="LocalFile" 
                     Source="map.html"
                     OnNavigationStarted="OnNavigationStarted" OnNavigationCompleted="OnNavigationCompleted"
