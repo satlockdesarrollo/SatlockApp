@@ -59,10 +59,26 @@
                     await App.Navigator.PushAsync(new TravelPage());
 
                     break;
-                case "WizardPage":
+                case "VerifyPage":
 
-                    MainViewModel.GetInstance().Wizard = new WizardViewModel();
-                    MainViewModel.GetInstance().QrWizard = new QrWizardViewModel();
+                    var instance = MainViewModel.GetInstance();
+                    instance.Wizard = new WizardViewModel();
+                    instance.QrWizard = new QrWizardViewModel();
+
+                    var wizardInstance = instance.Wizard;
+                    wizardInstance.OptionWizard = 0;
+
+                    await App.Navigator.PushAsync(new WizardPage());
+
+                    break;
+                case "InstallPage":
+
+                    var instace = MainViewModel.GetInstance();
+                    instace.Wizard = new WizardViewModel();
+                    instace.QrWizard = new QrWizardViewModel();
+
+                    var wizardInstace = instace.Wizard;
+                    wizardInstace.OptionWizard = 1;
 
                     await App.Navigator.PushAsync(new WizardPage());
 
@@ -71,12 +87,6 @@
 
                     MainViewModel.GetInstance().Profile = new ProfileViewModel();
                     await App.Navigator.PushAsync(new ProfilePage());
-
-                    break;
-                case "MapPage":
-
-                    //MainViewModel.GetInstance().Profile = new ProfileViewModel();
-                    await App.Navigator.PushAsync(new MapPage());
 
                     break;
                 default:

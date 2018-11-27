@@ -24,8 +24,15 @@
 
         private async void SelectTrip()
         {
-           // MainViewModel.GetInstance().Map = new MapViewModel(this);
-            //await App.Navigator.PushAsync(new MapPage());
+
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.TripItem = this;
+            mainViewModel.OptionMap = 2;
+            mainViewModel.Map = new MapViewModel();
+
+
+            await App.Navigator.PushAsync(new MapPage());
+
         }
 
         #endregion

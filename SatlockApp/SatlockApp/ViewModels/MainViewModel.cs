@@ -14,6 +14,12 @@
             set;
         }
 
+        public TripItemViewModel TripItem
+        {
+            get;
+            set;
+        }
+
         public ObservableCollection<MenuItemViewModel> Menus
         {
             get;
@@ -33,6 +39,12 @@
         }
 
         public string User
+        {
+            get;
+            set;
+        }
+
+        public int OptionMap
         {
             get;
             set;

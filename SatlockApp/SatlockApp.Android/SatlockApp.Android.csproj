@@ -124,9 +124,11 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\transfer.json" />
-    <AndroidAsset Include="Assets\scan_qr.json" />
     <AndroidAsset Include="Assets\avatar_animations.json" />
-    <AndroidAsset Include="Assets\data.json" />
+    <AndroidAsset Include="Assets\paso0.json" />
+    <AndroidAsset Include="Assets\paso1.json" />
+    <AndroidAsset Include="Assets\scan_qr.json" />
+    <AndroidAsset Include="Assets\paso2.json" />
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />

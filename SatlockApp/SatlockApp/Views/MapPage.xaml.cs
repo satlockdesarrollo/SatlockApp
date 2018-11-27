@@ -15,6 +15,7 @@ namespace SatlockApp.Views
 	public partial class MapPage : ContentPage
 	{
         private MapViewModel Map;
+        private int option;
 
 		public MapPage ()
 		{
@@ -23,7 +24,14 @@ namespace SatlockApp.Views
             Webview.AddLocalCallback("cslog", HandleLog);
             Webview.AddLocalCallback("csfakecode", PerformFakeAction);
 
-            
+        }
+
+        private void UpdateLocation(string latitud, string longitud)
+        {
+
+            string method = "updateMarker(" + latitud + ", "+longitud+")";
+
+            Webview.InjectJavascriptAsync(method);
 
         }
 
@@ -37,12 +45,6 @@ namespace SatlockApp.Views
         {
             System.Diagnostics.Debug.WriteLine($"Got from JS: {obj}");
         }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Webview.InjectJavascriptAsync("doWork(122345, 232123121)");
-        }
-
 
         private void OnNavigationStarted(object sender, Xam.Plugin.WebView.Abstractions.Delegates.DecisionHandlerDelegate e)
         {
@@ -59,8 +61,46 @@ namespace SatlockApp.Views
         private void OnContentLoaded(object sender, System.EventArgs e)
         {
             System.Diagnostics.Debug.WriteLine("Content has loaded");
-            Loader.IsRunning = false;
-            Webview.InjectJavascriptAsync("doWork(122345, 232123121)");
+
+            var mainViewModel = MainViewModel.GetInstance();
+            this.Map = mainViewModel.Map;
+            this.option = mainViewModel.OptionMap;
+
+            switch (this.option)
+            {
+                case 0:
+                    this.Map.Latitude = mainViewModel.EventsMobile.LatitudUnidad;
+                    this.Map.Longitude = mainViewModel.EventsMobile.LongitudUnidad;
+
+                    this.Map.EventsEnabled = true;
+                    this.Map.CloseEnabled = true;
+
+                    break;
+                case 1:
+                    this.Map.Latitude = mainViewModel.EventsMobile.LatitudUnidad;
+                    this.Map.Longitude = mainViewModel.EventsMobile.LongitudUnidad;
+
+                    this.Map.InstallEnabled = true;
+                    this.Map.CloseEnabled = true;
+
+                    break;
+
+                case 2:
+                    this.Map.Latitude = mainViewModel.TripItem.Latitud;
+                    this.Map.Longitude = mainViewModel.TripItem.Longitud;
+
+                    this.Map.TripEnabled = true;
+                    this.Map.CloseEnabled = true;
+
+                    break;
+
+            }
+            
+            this.Map.IsLoading = false;
+            this.Map.IsMap = true;
+           
+
+            this.UpdateLocation(this.Map.Latitude, this.Map.Longitude);
 
         }
 

@@ -30,7 +30,7 @@
             this.Menus.Add(new MenuItemViewModel
             {
                 Icon = "fas-check-double",
-                PageName = "WizardPage",
+                PageName = "VerifyPage",
                 Title = "Verificación de Sellos",
                 Color = "#2ecc71"
 
@@ -39,7 +39,7 @@
             this.Menus.Add(new MenuItemViewModel
             {
                 Icon = "fas-route",
-                PageName = "MapPage",
+                PageName = "InstallPage",
                 Title = "Iniciar Nuevo Viaje",
                 Color = "#e95936"
 

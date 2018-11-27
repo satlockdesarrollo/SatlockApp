@@ -18,6 +18,7 @@
         private bool skipEnabled;
         private bool checkEnabled;
         private int positionWizard;
+        private int optionWizard;
 
         #region Propierties
         public View[] _views
@@ -96,6 +97,18 @@
             set
             {
                 SetValue(ref this.checkEnabled, value);
+            }
+        }
+
+        public int OptionWizard
+        {
+            get
+            {
+                return this.optionWizard;
+            }
+            set
+            {
+                SetValue(ref this.optionWizard, value);
             }
         }
 
@@ -230,8 +243,8 @@
         {
             this._views = new View[]
             {
-                new Wizard1View(),
-                new Wizard1View(),
+                new Wizard0View(),
+                new Wizard2View(),
                 new QrWizardView(),
      
               

@@ -73,7 +73,7 @@
                     return permissionStatus;
                 }
 
-                DependencyService.Get<ToastMessage>().Show("Permiso concedido");
+                DependencyService.Get<ToastMessage>().Show("Permiso concedido, vuelve a inicar la acción");
 
             }
 

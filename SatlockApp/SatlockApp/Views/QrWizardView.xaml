@@ -16,7 +16,7 @@
                 </Grid.RowDefinitions>
                 <forms:AnimationView 
 	            Grid.Row="0"
-	            Animation="scan_qr.json" 
+	            Animation="paso1.json" 
 	            Loop="true" 
                 HeightRequest="200"
 	            AutoPlay="true" />
@@ -25,18 +25,14 @@
                     Grid.Row="1"
                     VerticalOptions="Start">
                     <Label
-                    Text="Paso 1 - Escaner QR"
+                    Text="Escaneo de código QR: "
                     Style="{StaticResource TutorialTitle}" />
                     <Label
                     Style="{StaticResource TutorialInfo}">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span
-                                Text="Lorem ipsum dolor sit amet" />
-                                <Span
-                                Text="consectetur adipiscing elit, sed do eiusmod " />
-                                <Span
-                                Text="tempor incididunt ut labore et dolore magna aliqua." />
+                                     Text="Escanee el código QR ubicado en la parte izquierda del equipo, para validar su existencia en plataforma y así mismo poder asignar un viaje." />
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>

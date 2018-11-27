@@ -192,19 +192,13 @@
 
             var mainViewModel = MainViewModel.GetInstance();
             mainViewModel.EventsMobile = (MobileRequest) response.Data;
-
-            var temp1 = JsonConvert.SerializeObject(mainViewModel.EventsMobile);
-            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(temp1);
-            var temp2 = System.Convert.ToBase64String(plainTextBytes);
-
-            //this.MapWizard.MapUrl = "https://www.ultrackonline.com/pagos/webview/mapa2.html?data%" + temp2;
+            mainViewModel.OptionMap = this.Wizard.OptionWizard;
+            mainViewModel.Map = new MapViewModel();
             
             this.Loading = false;
             this.ScanEnabled = true;
 
-            this.Wizard.NextEnabled = true;
-
-            
+            await App.Navigator.PushAsync(new MapPage());
 
 
         }

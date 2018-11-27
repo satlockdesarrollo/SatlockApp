@@ -114,10 +114,10 @@
     <BundleResource Include="Resources\iconize-fontawesome-regular.ttf" />
     <BundleResource Include="Resources\iconize-fontawesome-solid.ttf" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
-    <BundleResource Include="Resources\transfer.json" />
-    <BundleResource Include="Resources\scan_qr.json" />
     <BundleResource Include="Resources\avatar_animations.json" />
-    <BundleResource Include="Resources\data.json" />
+    <BundleResource Include="Resources\paso0.json" />
+    <BundleResource Include="Resources\paso1.json" />
+    <BundleResource Include="Resources\paso2.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">

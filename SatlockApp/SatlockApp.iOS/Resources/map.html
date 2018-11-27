@@ -2,51 +2,60 @@
 <!DOCTYPE html>
 <html>
 <head>
+	
+	<title></title>
 
-    <title></title>
-    <meta charset="utf-8" />
+	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin=""/>
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet-easybutton@2/src/easy-button.css">
+ 
     <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
-
+  
     <style>
-        * {
-            font-family: 'Nunito', sans-serif;
-        }
+    *{
+        font-family: 'Nunito', sans-serif;
+    }
 
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
+    html, body {
+        height: 100%;
+        margin: 0;
+    }
+    body { 
 
-        body {
-            padding: 0;
-            margin: 0;
-        }
+        padding: 0; 
+        margin: 0; 
+    } 
+    #map { 
 
-        #map {
-            height: 100%;
-            width: 100vw;
-            z-index: 0;
-        }
+        height: 100%; 
+        width: 100vw; 
+        z-index: 0;
+    }
     </style>
 
+    
 </head>
 <body>
-    <div id='map'>
-        <div class="leaflet-top leaflet-right">
-            <div class="leaflet-bar leaflet-control">
-                <button type="button" class="btn btn-light" onclick="center()"><i class="fa fa-location-arrow"></i>
-            </div>
-        </div>
-    </div>
-    <script>var map = L.map('map').fitWorld();
 
+    <div id='map'> 
+        <div class="leaflet-top leaflet-right">
+            <div class="leaflet-bar leaflet-control" >
+                <button type="button" class="btn btn-light" onclick="center()"><i class="fa fa-location-arrow"></i>
+               <!-- <button type="button" class="btn btn-light" onclick="doWork(4.1248423,-73.6440795)"><i class="fa fa-map"></i>-->
+            </div>
+        </div>    
+    </div>
+
+    <script>
+        
+        var map = L.map('map').fitWorld();
+		var Marker ;
+                    
         L.tileLayer('https://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
             maxZoom: 18, attribution: 'Google Maps', subdomains:['mt0','mt1','mt2','mt3']
         }).addTo(map);
@@ -56,31 +65,31 @@
                 iconSize: [40 , 40]
         });
 
-        let ubication = [4.6420856,-78.8348806];
+        let ubication = [3.5048604,-70.3036561];
 
-        function onLocation(){
-
-            L.marker(ubication, {icon: Icon}).addTo(map);
-            map.setView(ubication, 6 , { animation: true });
-
-        }
-
-        /*function center(){
+		Marker = L.marker(ubication, {icon: Icon}).addTo(map);
+        map.setView(ubication, 6 , { animation: true });   
 
 
-            map.setView(ubication, 16 , { animation: true });
+		
+		function center(){
+		
+			map.setView(Marker.getLatLng(),16  , { animation: true });   
 
-        }*/
+		}
 
-        this.onLocation();
+		function updateMarker(lat, lng){
+		
+			Marker.setLatLng([lat, lng]).update();
+			map.setView(Marker.getLatLng(),16 , { animation: true });   
 
-        function doWork(lat, long){
+		}
 
-            console.log("hola"+lat+"---"+long);
 
-            alert("Holaaaaaa"+lat+"---"+long);
+        
+    </script>
 
-        }</script>
+
 
 </body>
 </html>

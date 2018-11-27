@@ -12,7 +12,6 @@
         public WizardPage()
         {
             InitializeComponent();
-            NavigationPage.SetHasNavigationBar(this, false);
         }
 
     }
