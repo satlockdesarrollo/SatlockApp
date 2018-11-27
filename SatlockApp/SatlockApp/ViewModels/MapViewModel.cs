@@ -4,6 +4,7 @@
     using System.Windows.Input;
     using GalaSoft.MvvmLight.Command;
     using Newtonsoft.Json;
+    using Views;
 
     public class MapViewModel : BaseViewModel
     {
@@ -127,6 +128,57 @@
         {
 
             await App.Navigator.PopToRootAsync();
+
+        }
+
+        public ICommand Trip
+        {
+            get
+            {
+                return new RelayCommand(OpenTrip);
+            }
+
+        }
+
+        private async void OpenTrip()
+        {
+
+            //await App.Navigator.PushAsync(new );
+
+        }
+
+        public ICommand Events
+        {
+            get
+            {
+                return new RelayCommand(OpenEvents);
+            }
+
+        }
+
+        private async void OpenEvents()
+        {
+
+            //await App.Navigator.PushAsync(new );
+
+        }
+
+        public ICommand Installation
+        {
+            get
+            {
+                return new RelayCommand(OpenInstallation);
+            }
+
+        }
+
+        private async void OpenInstallation()
+        {
+
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Installation = new InstallationViewModel();
+
+            await App.Navigator.PushAsync(new InstallationPage());
 
         }
 

@@ -194,6 +194,7 @@
             mainViewModel.EventsMobile = (MobileRequest) response.Data;
             mainViewModel.OptionMap = this.Wizard.OptionWizard;
             mainViewModel.Map = new MapViewModel();
+            mainViewModel.MobileImei = imei;
             
             this.Loading = false;
             this.ScanEnabled = true;

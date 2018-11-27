@@ -1,15 +1,69 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="SatlockApp.Views.InstallationPage"
              xmlns:custom="clr-namespace:SatlockApp.Renders" 
              xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
+             BackgroundColor="#F5F5F5"
+             Title="Instalación"
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" BindingContext="{Binding Installation}">
-            <Label Text="No. de Placa" TextColor="e95936" />
-            <custom:EntryRender Text="{Binding Placa, Mode=TwoWay}" Keyboard="Text" />
-            
-        </StackLayout>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="20" BindingContext="{Binding Installation}">
+                <Label Text="No. de Unidad" TextColor="#e95936" />
+                <custom:EntryRender IsEnabled="false" Text="{Binding Unidad, Mode=TwoWay}" Keyboard="Text" />
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" /> 
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                     <Label Grid.Column="0" Grid.Row="0" Text="Contenedor" TextColor="#e95936" Margin="0,20,0,0" />
+                    <custom:EntryRender Grid.Column="0" Grid.Row="1"  Text="{Binding Contenedor, Mode=TwoWay}" Keyboard="Text" />
+                    
+                    <Label Grid.Column="1" Grid.Row="0"  Text="Tamaño " TextColor="#e95936" Margin="0,20,0,0" />
+                    <custom:EntryRender Grid.Column="1" Grid.Row="1"  Text="{Binding Tamano, Mode=TwoWay}" Keyboard="Numeric" /> 
+                </Grid>
+                
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" /> 
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    
+                     <Label Grid.Column="0" Grid.Row="0" Text="Puerto de Control" TextColor="#e95936" Margin="0,20,0,0" />
+                     <custom:EntryRender Grid.Column="0" Grid.Row="1" Text="{Binding Control, Mode=TwoWay}" Keyboard="Numeric" />
+                    
+                     <Label Grid.Column="1" Grid.Row="0" Text="Embarcación" TextColor="#e95936" Margin="0,20,0,0" />
+                     <custom:EntryRender Grid.Column="1" Grid.Row="1" Text="{Binding Embarcacion, Mode=TwoWay}" Keyboard="Numeric" />
+                </Grid> 
+                
+                <Label Text="Fecha Eta" TextColor="#e95936" Margin="0,20,0,0" />
+                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Today, Mode=TwoWay}" />
+                
+                <Label Text="Fecha de Cargue" TextColor="#e95936" Margin="0,20,0,0" />
+                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Today, Mode=TwoWay}" />
+                
+                <Label Text="Fecha de Despacho" TextColor="#e95936" Margin="0,20,0,0" />
+                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Today, Mode=TwoWay}" />
+                
+                <Label Text="Dirección de Origen" TextColor="#e95936" Margin="0,20,0,0"/>
+                <custom:EntryRender Text="{Binding Direccion, Mode=TwoWay}" Keyboard="Text" />
+                
+                <Label Text="Observaciones" TextColor="#e95936" Margin="0,20,0,0"/>
+                <Editor Text="{Binding Observation}" HeightRequest="100"/>
+                
+                 <custom:ButtonRender  Margin="0,20,0,0"  IsVisible="{Binding InstallationEnabled, Mode=TwoWay}" Command="{Binding Installation, Mode=TwoWay}" CustomBorderColor="#e95936" TextColor="White" Text="Crear Viaje" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#e95936" VerticalOptions="Center" />
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

@@ -32,6 +32,12 @@
             set;
         }
 
+        public string MobileImei
+        {
+            get;
+            set;
+        }
+
         public string Token
         {
             get;
