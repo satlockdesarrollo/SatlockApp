@@ -94,6 +94,12 @@
             set;
         }
 
+        public InstallationViewModel Installation
+        {
+            get;
+            set;
+        }
+
         #endregion
 
         #region Contructors

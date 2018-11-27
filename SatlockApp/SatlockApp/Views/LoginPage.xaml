@@ -26,8 +26,7 @@
                     </Label>-->
                 </StackLayout>
                 <StackLayout Grid.Row="1" Padding="20">
-                    <Label Text="Nombre de Usuario" TextColor="White">
-                    </Label>
+                    <Label Text="Nombre de Usuario" TextColor="White" />
                     <custom:EntryRender Text="{Binding Username, Mode=TwoWay}" Keyboard="Email" />
                     <Label Margin="0,20,0,0" Text="Contraseña" TextColor="White" />
                     <StackLayout Grid.Row="2" Grid.Column="1">

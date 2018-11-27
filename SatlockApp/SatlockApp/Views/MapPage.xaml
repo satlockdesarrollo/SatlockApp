@@ -21,9 +21,9 @@
                     AbsoluteLayout.LayoutBounds="1,1,1,1" AbsoluteLayout.LayoutFlags="All"/>
             <AbsoluteLayout AbsoluteLayout.LayoutBounds="1,1.50,1,.5" AbsoluteLayout.LayoutFlags="All" BackgroundColor="Transparent" Margin="10,10,10,10">
                 <StackLayout Orientation="Vertical" Margin="20,20,20,20" BackgroundColor="Transparent" AbsoluteLayout.LayoutFlags="All" AbsoluteLayout.LayoutBounds="1,1,1,1">
-                    <custom:ButtonRender  CustomBorderColor="#e95936" TextColor="White" IsVisible="{Binding EventsEnabled,  Mode=TwoWay}" Text="Ver Eventos" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#e95936" VerticalOptions="Center" />
+                    <custom:ButtonRender  CustomBorderColor="#6178fc" TextColor="White" IsVisible="{Binding EventsEnabled,  Mode=TwoWay}" Text="Ver Eventos" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#6178fc" VerticalOptions="Center" />
                     <custom:ButtonRender  CustomBorderColor="#6178fc" TextColor="White" IsVisible="{Binding TripEnabled,  Mode=TwoWay}" Text="Ver Viaje" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#6178fc" VerticalOptions="Center" />
-                    <custom:ButtonRender  CustomBorderColor="#0ca6fe" TextColor="White" IsVisible="{Binding InstallEnabled,  Mode=TwoWay}" Text="Asignar Viaje" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#0ca6fe" VerticalOptions="Center" />
+                    <custom:ButtonRender  CustomBorderColor="#6178fc" TextColor="White" IsVisible="{Binding InstallEnabled,  Mode=TwoWay}" Text="Asignar Viaje" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#6178fcs" VerticalOptions="Center" />
                     <custom:ButtonRender  CustomBorderColor="#2ecc71" TextColor="White" IsVisible="{Binding CloseEnabled,  Mode=TwoWay}" Command="{Binding Close, Mode=TwoWay}" Text="Cerrar" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#2ecc71" VerticalOptions="Center" />
                 </StackLayout>
             </AbsoluteLayout>

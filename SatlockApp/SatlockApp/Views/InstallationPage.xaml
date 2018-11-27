@@ -1,12 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="SatlockApp.Views.InstallationPage">
+             x:Class="SatlockApp.Views.InstallationPage"
+             xmlns:custom="clr-namespace:SatlockApp.Renders" 
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
+             BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout Orientation="Vertical" BindingContext="{Binding Installation}">
+            <Label Text="No. de Placa" TextColor="e95936" />
+            <custom:EntryRender Text="{Binding Placa, Mode=TwoWay}" Keyboard="Text" />
+            
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
