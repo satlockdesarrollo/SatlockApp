@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SatlockApp.Views
@@ -16,6 +17,7 @@ namespace SatlockApp.Views
 		{
             NavigationPage.SetHasNavigationBar(this, false);
             InitializeComponent ();
-		}
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+        }
 	}
 }

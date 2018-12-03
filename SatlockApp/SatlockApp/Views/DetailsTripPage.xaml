@@ -97,29 +97,6 @@
                         <StackLayout Grid.Column="1" Orientation="Horizontal">
                             <Frame  Padding="0" HasShadow="false">
                                 <StackLayout Orientation="Vertical">
-                                    <Label FontSize="Medium" Text="Sello" TextColor="#212121" />
-                                    <Label FontSize="Small" Text="{Binding Sello, Mode=TwoWay}" TextColor="#212121" />
-                                </StackLayout>
-                            </Frame>
-                        </StackLayout>
-                    </Grid>
-                </Frame>
-                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        <iconize:IconImage
-                             Grid.Column="0"
-                             HeightRequest="20"
-                             Margin="0,0,10,0"
-                             Icon="fas-mobile"
-                             IconColor="#e95936"
-                             WidthRequest="20" />
-                        <StackLayout Grid.Column="1" Orientation="Horizontal">
-                            <Frame  Padding="0" HasShadow="false">
-                                <StackLayout Orientation="Vertical">
                                     <Label FontSize="Medium" Text="Contenedor" TextColor="#212121" />
                                     <Label FontSize="Small" Text="{Binding Contenedor, Mode=TwoWay}" TextColor="#212121" />
                                 </StackLayout>

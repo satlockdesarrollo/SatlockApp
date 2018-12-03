@@ -7,6 +7,7 @@ using SatlockApp.ViewModels;
 using Xam.Plugin.WebView.Abstractions;
 using Xam.Plugin.WebView.Abstractions.Enumerations;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SatlockApp.Views
@@ -20,7 +21,7 @@ namespace SatlockApp.Views
 		public MapPage ()
 		{
 			InitializeComponent ();
-
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
             Webview.AddLocalCallback("cslog", HandleLog);
             Webview.AddLocalCallback("csfakecode", PerformFakeAction);
 

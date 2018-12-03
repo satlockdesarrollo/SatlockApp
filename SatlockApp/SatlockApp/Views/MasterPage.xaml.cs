@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
 
     using Xamarin.Forms;
+    using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
     using Xamarin.Forms.Xaml;
 
     [XamlCompilation(XamlCompilationOptions.Compile)]
@@ -15,6 +16,7 @@
 		public MasterPage ()
 		{
 			InitializeComponent ();
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
             App.Navigator = Navigator;
             App.Master = this;
         }

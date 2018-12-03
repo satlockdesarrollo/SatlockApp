@@ -5,6 +5,7 @@
     using Xamarin.Forms;
     using Renders;
     using SatlockApp.ViewModels;
+    using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
     public partial class WizardPage : ContentPage
     {
@@ -12,12 +13,9 @@
         public WizardPage()
         {
             InitializeComponent();
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
         }
 
-        private void OnSuccess(object sender, System.EventArgs e)
-        {
-            System.Diagnostics.Debug.WriteLine("image is success");
-        }
-
+      
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 using Xamarin.Forms.Xaml;
 
 namespace SatlockApp.Views
@@ -15,6 +16,7 @@ namespace SatlockApp.Views
 		public InstallationPage ()
 		{
 			InitializeComponent ();
-		}
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+        }
 	}
 }
