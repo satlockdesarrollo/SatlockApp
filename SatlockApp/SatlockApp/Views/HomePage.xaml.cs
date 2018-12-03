@@ -17,6 +17,7 @@ namespace SatlockApp.Views
 		{
 			InitializeComponent ();
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+
         }
 	}
 }

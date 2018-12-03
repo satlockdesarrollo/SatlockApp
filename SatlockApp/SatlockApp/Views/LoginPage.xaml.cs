@@ -15,9 +15,11 @@ namespace SatlockApp.Views
 	{
 		public LoginPage ()
 		{
-            NavigationPage.SetHasNavigationBar(this, false);
+
             InitializeComponent ();
+            Xamarin.Forms.NavigationPage.SetHasNavigationBar(this, false);
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+
         }
 	}
 }
