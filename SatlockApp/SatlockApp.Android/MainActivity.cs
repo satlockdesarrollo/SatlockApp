@@ -27,6 +27,7 @@ namespace SatlockApp.Droid
             ZXing.Net.Mobile.Forms.Android.Platform.Init();
             Plugin.Iconize.Iconize.Init(Resource.Id.toolbar, Resource.Id.sliding_tabs);
             FormsWebViewRenderer.Initialize();
+            FFImageLoading.Forms.Platform.CachedImageRenderer.Init(enableFastRenderer:true);
             Window.SetStatusBarColor(Color.ParseColor("#b44800"));
             // AnimationViewRenderer.Init();
             LoadApplication(new App());

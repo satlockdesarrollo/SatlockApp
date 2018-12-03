@@ -115,9 +115,12 @@
     <BundleResource Include="Resources\iconize-fontawesome-solid.ttf" />
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
     <BundleResource Include="Resources\avatar_animations.json" />
-    <BundleResource Include="Resources\paso0.json" />
-    <BundleResource Include="Resources\paso1.json" />
-    <BundleResource Include="Resources\paso2.json" />
+    <BundleResource Include="Resources\Paso01.json" />
+    <BundleResource Include="Resources\Paso02.json" />
+    <BundleResource Include="Resources\Paso03.json" />
+    <BundleResource Include="Resources\Paso03A.json" />
+    <BundleResource Include="Resources\Paso03B.json" />
+    <BundleResource Include="Resources\Paso04.json" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Contents.json">
@@ -208,6 +211,12 @@
     </PackageReference>
     <PackageReference Include="Xam.Plugins.Settings">
       <Version>4.0.0.10-beta</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Forms">
+      <Version>2.4.5.860-pre</Version>
+    </PackageReference>
+    <PackageReference Include="Xamarin.FFImageLoading.Transformations">
+      <Version>2.4.5.860-pre</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms" Version="3.4.0.1008975" />
     <PackageReference Include="ZXing.Net.Mobile">

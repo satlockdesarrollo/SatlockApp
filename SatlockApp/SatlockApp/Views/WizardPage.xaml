@@ -6,6 +6,7 @@
     xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
     xmlns:carousel="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
     xmlns:custom="clr-namespace:SatlockApp.Renders" 
+    xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
     BindingContext="{Binding Main, Source={StaticResource Locator}}"
     Title="Verificación"
     BackgroundColor="White">
@@ -38,8 +39,6 @@
                             Height="Auto" />
                 </Grid.RowDefinitions>
                 <carousel:CarouselViewControl
-                    x:Name="carouselWizard"
-                    ItemsSource="{Binding _views}"
                     Grid.Row="0"
                     Grid.RowSpan="2"
                     Orientation="Horizontal"
@@ -48,8 +47,50 @@
                     ShowIndicators="False"
                     CurrentPageIndicatorTintColor="LightGray"
                     IndicatorsTintColor="White"
+                    ItemsSource="{Binding _views}"
                     HorizontalOptions="FillAndExpand"
-                    VerticalOptions="FillAndExpand" />
+                    VerticalOptions="FillAndExpand">
+                    <carousel:CarouselViewControl.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="*" />
+                                </Grid.RowDefinitions>
+                                <forms:AnimationView 
+	                                Grid.Row="0"
+                                    Margin="0,20,0,0" 
+	                                Animation="{Binding ImageUrl}" 
+	                                Loop="true" 
+                                    HeightRequest="200"
+	                                AutoPlay="true" />  
+                                <!--<ffimageloading:CachedImage 
+                                    Grid.Row="0"  
+                                    Margin="0,20,0,0" 
+                                    HeightRequest="200" 
+                                    DownsampleHeight="200"
+                                    Source="{Binding ImageUrl}" />-->
+                                <StackLayout
+                                    Margin="0,10,0,0"
+                                    Grid.Row="1"
+                                    VerticalOptions="Start">
+                                    <Label
+                                        Text="{Binding Title}"
+                                        Style="{StaticResource TutorialTitle}" />
+                                    <Label 
+                                         Style="{StaticResource TutorialInfo}">
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span
+                                                    Text="{Binding Description}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+                                </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </carousel:CarouselViewControl.ItemTemplate>
+                </carousel:CarouselViewControl>
                 <Grid
                     Grid.Row="1"
                     VerticalOptions="EndAndExpand">
@@ -60,9 +101,10 @@
                         <iconize:IconButton HorizontalOptions="StartAndExpand"  IsVisible="{Binding PrevEnabled, Mode=TwoWay}" Command="{Binding PrevSlide, Mode=TwoWay}" FontSize="20" Text="fas-angle-double-left" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
                         <iconize:IconButton HorizontalOptions="StartAndExpand"  IsVisible="{Binding CloseEnabled, Mode=TwoWay}" Command="{Binding CloseSlide, Mode=TwoWay}" FontSize="20" Text="fas-times" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
                         <custom:ButtonRender HorizontalOptions="CenterAndExpand" IsVisible="{Binding SkipEnabled, Mode=TwoWay}" Command="{Binding SkipSlide, Mode=TwoWay}" CustomBorderColor="Transparent" TextColor="White" Text="Omitir" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="Transparent" />
-                        <iconize:IconButton HorizontalOptions="EndAndExpand" IsVisible="{Binding CheckEnabled, Mode=TwoWay} " Command="{Binding CloseSlide, Mode=TwoWay}" FontSize="20" Text="fas-check" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
+                        <ActivityIndicator HorizontalOptions="EndAndExpand" IsVisible="{Binding Loading,Mode=TwoWay}" IsRunning="{Binding Loading,Mode=TwoWay}" Color="White" WidthRequest="48" />
+                        <iconize:IconButton HorizontalOptions="EndAndExpand" IsVisible="{Binding CheckEnabled, Mode=TwoWay} " Command="{Binding OpenQr, Mode=TwoWay}" FontSize="20" Text="fas-qrcode" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
                         <iconize:IconButton HorizontalOptions="EndAndExpand"  IsVisible="{Binding NextEnabled, Mode=TwoWay}" Command="{Binding NextSlide, Mode=TwoWay}" FontSize="20" Text="fas-angle-double-right" TextColor="White" WidthRequest="48" BackgroundColor="Transparent" />
-                     </StackLayout>
+                    </StackLayout>
                 </Grid>
             </Grid>
         </StackLayout>

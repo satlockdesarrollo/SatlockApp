@@ -48,13 +48,13 @@
                 </Grid> 
                 
                 <Label Text="Fecha Eta" TextColor="#e95936" Margin="0,20,0,0" />
-                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Today, Mode=TwoWay}" />
+                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Eta, Mode=TwoWay}" />
                 
                 <Label Text="Fecha de Cargue" TextColor="#e95936" Margin="0,20,0,0" />
-                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Today, Mode=TwoWay}" />
+                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Cargue, Mode=TwoWay}" />
                 
                 <Label Text="Fecha de Despacho" TextColor="#e95936" Margin="0,20,0,0" />
-                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Today, Mode=TwoWay}" />
+                <DatePicker MinimumDate="{Binding MinDate, Mode=TwoWay}" MaximumDate="{Binding MaxDate, Mode=TwoWay}" Date="{Binding Despacho, Mode=TwoWay}" />
                 
                 <Label Text="Dirección de Origen" TextColor="#e95936" Margin="0,20,0,0"/>
                 <custom:EntryRender Text="{Binding Direccion, Mode=TwoWay}" Keyboard="Text" />
@@ -63,6 +63,9 @@
                 <Editor Text="{Binding Observation}" HeightRequest="100"/>
                 
                  <custom:ButtonRender  Margin="0,20,0,0"  IsVisible="{Binding InstallationEnabled, Mode=TwoWay}" Command="{Binding Installation, Mode=TwoWay}" CustomBorderColor="#e95936" TextColor="White" Text="Crear Viaje" CustomBorderRadius="10" CustomBorderWidth="2" CustomBackgroundColor="#e95936" VerticalOptions="Center" />
+
+                <ActivityIndicator Color="#e95936"  IsRunning="{Binding IsLoading, Mode=TwoWay}" HorizontalOptions="CenterAndExpand">
+                </ActivityIndicator>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

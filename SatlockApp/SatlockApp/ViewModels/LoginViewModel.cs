@@ -153,7 +153,7 @@
 
             var apiUrl = Application.Current.Resources["APIUrl"].ToString();
 
-            var response = await this.Api.loginUser(
+            var response = await this.Api.LoginUser(
                 apiUrl,
                 "/Controller",
                 "/TokenCreatorController.php",

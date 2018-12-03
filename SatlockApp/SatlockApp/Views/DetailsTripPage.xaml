@@ -1,0 +1,547 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
+             Title="Detalles del Viaje"
+             BackgroundColor="White"
+             x:Class="SatlockApp.Views.DetailsTripPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout 
+                Orientation="Vertical" 
+                Padding="20"
+                BindingContext="{Binding Details}">
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-clipboard"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Id del Viaje" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding IdViaje, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-map-marked-alt"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Ultima Localización" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding UltimaLocalizacion, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-mobile"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Sello" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Sello, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-mobile"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Sello" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Sello, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-mobile"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Contenedor" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Contenedor, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-building"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Sub Grupo" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding SubGrupo, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Tipo" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Tipo, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-calendar-alt"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Fecha Inicial" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding FechaInicial, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-clock"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Hora Inicial" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding HoraInicial, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-clock"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Hora Final" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding HoraFinal, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-calendar-alt"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Fecha Localización" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Floc, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-location-arrow"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Ultima Localización" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Uloc, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Estado" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Estado, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Motonave" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Motonave, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-map-marker-alt"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Destino" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Destino, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-map-marker-alt"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Latitud" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Latitud, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-map-marker-alt"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Longitud" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Longitud, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-battery-half"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Batería" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Bateria, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Tamaño del Contenedor" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding TamContenedor, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Días en Mora" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding DiasMora, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Patio" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Patio, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Linea Naviera" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding LineaNaviera, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="20"
+                             Margin="0,0,10,0"
+                             Icon="fas-chevron-right"
+                             IconColor="#e95936"
+                             WidthRequest="20" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Codigo interno" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="{Binding Motonaven, Mode=TwoWay}" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

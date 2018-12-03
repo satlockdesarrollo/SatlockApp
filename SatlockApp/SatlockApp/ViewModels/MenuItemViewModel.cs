@@ -63,7 +63,6 @@
 
                     var instance = MainViewModel.GetInstance();
                     instance.Wizard = new WizardViewModel();
-                    instance.QrWizard = new QrWizardViewModel();
 
                     var wizardInstance = instance.Wizard;
                     wizardInstance.OptionWizard = 0;
@@ -75,7 +74,6 @@
 
                     var instace = MainViewModel.GetInstance();
                     instace.Wizard = new WizardViewModel();
-                    instace.QrWizard = new QrWizardViewModel();
 
                     var wizardInstace = instace.Wizard;
                     wizardInstace.OptionWizard = 1;

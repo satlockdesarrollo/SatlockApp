@@ -66,7 +66,7 @@
             this.IsRefreshing = true;
 
             var apiUrl = Application.Current.Resources["APIUrl"].ToString();
-            var response = await this.Api.getTrips<Response>(
+            var response = await this.Api.GetTrips<Response>(
                 apiUrl,
                 "/Controller",
                 "/DatosViajeController.php",

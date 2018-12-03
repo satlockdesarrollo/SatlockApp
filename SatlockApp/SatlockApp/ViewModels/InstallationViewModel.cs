@@ -1,22 +1,36 @@
 ﻿namespace SatlockApp.ViewModels
 {
+    using GalaSoft.MvvmLight.Command;
+    using SatlockApp.Models;
+    using SatlockApp.Renders;
+    using SatlockApp.Services;
     using System;
     using System.Collections.Generic;
     using System.Text;
+    using System.Windows.Input;
+    using Xamarin.Forms;
 
     public class InstallationViewModel : BaseViewModel
     {
+        private ApiService Api;
 
         private string unidad;
         private string contenedor;
-        private string tamano;
-        private string control;
+        private int tamano;
+        private int control;
         private string embarcacion;
         private string maxDate;
         private string minDate;
-        private string today;
+        private string eta;
+        private string cargue;
+        private string despacho;
+        private string direccion;
+        private string observation;
         private bool isLoading;
         private bool installationEnabled;
+
+        private string token;
+        private string user;
 
         public string Unidad
         {
@@ -42,7 +56,7 @@
             }
         }
 
-        public string Tamano
+        public int Tamano
         {
             get
             {
@@ -54,8 +68,7 @@
             }
         }
 
-
-        public string Control
+        public int Control
         {
             get
             {
@@ -105,16 +118,95 @@
             }
         }
 
-        public string Today
+        public string Eta
         {
 
             get
             {
-                return today;
+                return eta;
             }
             set
             {
-                SetValue(ref this.today, value);
+                SetValue(ref this.eta, value);
+            }
+        }
+
+        public string Cargue
+        {
+
+            get
+            {
+                return cargue;
+            }
+            set
+            {
+                SetValue(ref this.cargue, value);
+            }
+        }
+        
+        public string Despacho
+        {
+
+            get
+            {
+                return despacho;
+            }
+            set
+            {
+                SetValue(ref this.despacho, value);
+            }
+        }
+
+        public string Direccion
+        {
+
+            get
+            {
+                return direccion;
+            }
+            set
+            {
+                SetValue(ref this.direccion, value);
+            }
+        }
+
+        public string Observation
+        {
+
+            get
+            {
+                return observation;
+            }
+            set
+            {
+                SetValue(ref this.observation, value);
+            }
+        }
+
+        public string User
+        {
+
+            get
+            {
+                return user;
+            }
+            set
+            {
+                SetValue(ref this.user, value);
+            }
+        }
+
+        public string Token
+        {
+
+            get
+            {
+                return token;
+            }
+            set
+            {
+                SetValue(ref this.token
+, value);
             }
         }
 
@@ -144,21 +236,142 @@
             }
         }
 
+        public ICommand Installation
+        {
+            get
+            {
+                return new RelayCommand(Create);
+            }
+
+        }
+
+        private async void Create()
+        {
+            if (string.IsNullOrEmpty(this.Contenedor))
+            {
+                DependencyService.Get<ToastMessage>().Show("Debe ingresar un número de contenedor");
+                return;
+            }
+
+            if (this.Tamano == 0)
+            {
+                DependencyService.Get<ToastMessage>().Show("Debe ingresar el tamaño del contenedor");
+                return;
+            }
+
+            if (this.Control == 0)
+            {
+                DependencyService.Get<ToastMessage>().Show("Debe ingresar el número de puerto");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.Direccion))
+            {
+                DependencyService.Get<ToastMessage>().Show("Debe ingresar una dirección");
+                return;
+            }
+
+            if (string.IsNullOrEmpty(this.Observation))
+            {
+                DependencyService.Get<ToastMessage>().Show("Debe ingresar una observación");
+                return;
+            }
+
+            this.IsLoading = true;
+            this.InstallationEnabled = false;
+
+            var connection = await this.Api.CheckConnection();
+            if (!connection.IsSuccess)
+            {
+                this.IsLoading = false;
+                this.InstallationEnabled = true;
+
+                DependencyService.Get<ToastMessage>().Show(connection.Message);
+                return;
+
+            }
+
+
+            var trip = new InstallationRequest
+            {
+                Placa = this.Unidad,
+                Contenedor = this.Contenedor,
+                Idtamcontenedor = this.Tamano,
+                Idpuertocontrol = this.Control,
+                Motonave = this.Embarcacion,
+                Eta = this.Eta,
+                FCargue = this.Cargue,
+                FechaDespacho = this.Despacho,
+                DireccionOrigen = this.Direccion,
+                Estado = "",
+                Observaciones = this.Observation
+
+            };
+
+            var data_request = new DataRequest<InstallationRequest>(trip);
+
+            var apiUrl = Application.Current.Resources["APIUrlDev"].ToString();
+
+            var response = await this.Api.CreateTrip(
+                apiUrl,
+                "/Controller",
+                "/AsignacionController.php",
+                this.Token,
+                this.User,
+                data_request);
+
+            if (!response.IsSuccess)
+            {
+
+                await Application.Current.MainPage.DisplayAlert(
+                    "Error",
+                    response.Message,
+                    "Aceptar");
+
+                this.IsLoading = false;
+                this.InstallationEnabled = true;
+
+                return;
+
+
+            }
+
+
+            await Application.Current.MainPage.DisplayAlert(
+                  "Exito",
+                  response.Message,
+                  "Aceptar");
+
+            await App.Navigator.PopToRootAsync();
+
+
+
+        }
+
+
         public InstallationViewModel()
         {
             this.updateDates();
             this.InstallationEnabled = true;
             this.IsLoading = false;
+            this.Tamano = 0;
+            this.Control = 0;
+
+            this.Api = new ApiService();
 
             var mainViewModel = MainViewModel.GetInstance();
             this.Unidad = mainViewModel.MobileImei;
+            this.Token = mainViewModel.Token;
+            this.User = mainViewModel.User;
         }
 
         private void updateDates()
         {
 
             var now = DateTime.Now;
-            this.Today = now.ToString("MM/dd/yyyy");
+            this.Eta = now.ToString("MM/dd/yyyy");
+            this.Cargue = now.ToString("MM/dd/yyyy");
+            this.Despacho = now.ToString("MM/dd/yyyy");
 
             var max = now.AddMonths(6);
             this.MaxDate = max.ToString("MM/dd/yyyy");

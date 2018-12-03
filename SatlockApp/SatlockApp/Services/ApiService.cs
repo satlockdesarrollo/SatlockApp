@@ -46,7 +46,7 @@
             };
         }
 
-        public async Task<Response> validateMobile<T>(string urlBase, string serviceprefix, string controller, string parameters, string accessToken, string username)
+        public async Task<Response> ValidateMobile<T>(string urlBase, string serviceprefix, string controller, string parameters, string accessToken, string username)
         {
 
             try
@@ -89,7 +89,7 @@
             }
         }
 
-        public async Task<Response> getTrips<T>(string urlBase, string serviceprefix, string controller, string accessToken, string username)
+        public async Task<Response> GetTrips<T>(string urlBase, string serviceprefix, string controller, string accessToken, string username)
         {
             try
             {
@@ -131,30 +131,32 @@
             }
         }
 
-        public async Task<Response> Post<T>(string urlBase, string servicePrefix, string controller, T model)
+        public async Task<Response> CreateTrip<T>(string urlBase, string serviceprefix, string controller, string accessToken, string username , T model)
         {
             try
             {
                 var request = JsonConvert.SerializeObject(model);
                 var content = new StringContent(request, Encoding.UTF8, "application/json");
+                string url_api = urlBase + serviceprefix + controller;
                 var client = new HttpClient();
-                client.BaseAddress = new Uri(urlBase);
-                var url = string.Format("{0}{1}", servicePrefix, controller);
-                var response = await client.PostAsync(url, content);
+                client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+                client.DefaultRequestHeaders.Add("User", username);
+                var uri = new Uri(string.Format(url_api, string.Empty));
+                var response = await client.PostAsync(uri, content);
+                var result = await response.Content.ReadAsStringAsync();
+
 
                 if (!response.IsSuccessStatusCode)
                 {
-                    return new Response
-                    {
-                        IsSuccess = false,
-                        Message = response.StatusCode.ToString(),
-                    };
+                    var error = JsonConvert.DeserializeObject<Response>(result);
+                    error.IsSuccess = false;
+                    return error;
                 }
 
-                var result = await response.Content.ReadAsStringAsync();
                 var data_result = JsonConvert.DeserializeObject<Response>(result);
-
+                data_result.IsSuccess = true;
                 return data_result;
+
             }
             catch (Exception ex)
             {
@@ -164,9 +166,10 @@
                     Message = ex.Message,
                 };
             }
+
         }
 
-        public async Task<Response> loginUser<T>(string urlBase, string serviceprefix, string controller, T model)
+        public async Task<Response> LoginUser<T>(string urlBase, string serviceprefix, string controller, T model)
         {
             try
             {

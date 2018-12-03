@@ -14,5 +14,10 @@
             InitializeComponent();
         }
 
+        private void OnSuccess(object sender, System.EventArgs e)
+        {
+            System.Diagnostics.Debug.WriteLine("image is success");
+        }
+
     }
 }

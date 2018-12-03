@@ -94,13 +94,19 @@
             set;
         }
 
-        public QrWizardViewModel QrWizard
+        public InstallationViewModel Installation
         {
             get;
             set;
         }
 
-        public InstallationViewModel Installation
+        public DetailsTripViewModel Details
+        {
+            get;
+            set;
+        }
+
+        public EventsViewModel Events
         {
             get;
             set;

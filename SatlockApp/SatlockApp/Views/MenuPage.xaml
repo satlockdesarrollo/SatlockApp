@@ -25,12 +25,6 @@
                     WidthRequest="60"
                     HeightRequest="60"
 	                AutoPlay="true" />
-                <!--<iconize:IconImage
-                    HeightRequest="50"
-                    Icon="fas-user-circle"
-                    Margin="0,0,25,0"
-                    IconColor="White"
-                    WidthRequest="50" />-->
                 <Label x:Name="userText" 
                     Text="Nombre de Usuario" 
                     TextColor="#FAFAFA"

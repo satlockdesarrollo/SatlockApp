@@ -142,8 +142,9 @@
 
         private async void OpenTrip()
         {
-
-            //await App.Navigator.PushAsync(new );
+            var mainViewModel = MainViewModel.GetInstance();
+            mainViewModel.Details = new DetailsTripViewModel(mainViewModel.TripItem);
+            await App.Navigator.PushAsync(new DetailsTripPage());
 
         }
 

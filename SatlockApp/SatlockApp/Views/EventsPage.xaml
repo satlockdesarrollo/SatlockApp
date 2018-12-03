@@ -1,0 +1,61 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             BindingContext="{Binding Main, Source={StaticResource Locator}}"
+             xmlns:iconize="clr-namespace:Plugin.Iconize;assembly=Plugin.Iconize" 
+             Title="Eventos"
+             BackgroundColor="White"
+             x:Class="SatlockApp.Views.EventsPage">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Orientation="Vertical" Padding="20">
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="30"
+                             Margin="0,0,10,0"
+                             Icon="fas-user"
+                             IconColor="#e95936"
+                             WidthRequest="30" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Cabecera titulo" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="Prueba" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+                <Frame CornerRadius="2" BorderColor="Transparent" BackgroundColor="Transparent" HasShadow="false">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <iconize:IconImage
+                             Grid.Column="0"
+                             HeightRequest="30"
+                             Margin="0,0,10,0"
+                             Icon="fas-user"
+                             IconColor="#e95936"
+                             WidthRequest="30" />
+                        <StackLayout Grid.Column="1" Orientation="Horizontal">
+                            <Frame  Padding="0" HasShadow="false">
+                                <StackLayout Orientation="Vertical">
+                                    <Label FontSize="Medium" Text="Cabecera titulo" TextColor="#212121" />
+                                    <Label FontSize="Small" Text="Prueba" TextColor="#212121" />
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Grid>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

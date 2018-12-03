@@ -8,8 +8,11 @@
              BindingContext="{Binding Main, Source={StaticResource Locator}}">
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Travel}">
-            <SearchBar BackgroundColor="Transparent" HeightRequest="50" HorizontalOptions="CenterAndExpand" Margin="5" Text="{Binding Filter, Mode=TwoWay}" Placeholder="Buscar Contenedor" SearchCommand="{Binding SearchCommand}">
-            </SearchBar>
+            <Frame 
+                VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#e95936" Padding="2">
+                <SearchBar BackgroundColor="White"  HorizontalOptions="CenterAndExpand" Margin="1" Text="{Binding Filter, Mode=TwoWay}" Placeholder="Buscar Contenedor" SearchCommand="{Binding SearchCommand}">
+                </SearchBar>
+            </Frame>
             <ListView BackgroundColor="Transparent" HasUnevenRows="true" IsPullToRefreshEnabled="true" IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}" ItemsSource="{Binding Trips}" SeparatorVisibility="None" RefreshCommand="{Binding RefreshCommand}">
                 <ListView.ItemTemplate>
                     <DataTemplate>
