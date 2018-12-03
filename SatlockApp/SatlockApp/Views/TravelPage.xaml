@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <StackLayout BindingContext="{Binding Travel}">
             <Frame 
-                VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#e95936" Padding="2">
+                VerticalOptions="StartAndExpand" HorizontalOptions="FillAndExpand" BackgroundColor="#e95936" Padding="2" CornerRadius="0">
                 <SearchBar BackgroundColor="White"  HorizontalOptions="CenterAndExpand" Margin="1" Text="{Binding Filter, Mode=TwoWay}" Placeholder="Buscar Contenedor" SearchCommand="{Binding SearchCommand}">
                 </SearchBar>
             </Frame>
